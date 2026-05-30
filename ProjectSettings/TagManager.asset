@@ -41,6 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Space
+    uniqueID: 129766703
+    locked: 0
+  - name: Ground
+    uniqueID: 4191356197
+    locked: 0
+  - name: Planet
+    uniqueID: 1624383735
+    locked: 0
+  - name: Walls
+    uniqueID: 4116824025
+    locked: 0
+  - name: Interactables
+    uniqueID: 3457292149
+    locked: 0
+  - name: Player
+    uniqueID: 1042362095
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []
