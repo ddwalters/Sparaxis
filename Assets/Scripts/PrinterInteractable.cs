@@ -51,7 +51,8 @@ public class PrinterInteractable : MonoBehaviour
         if (GardenManager.Instance.TryPlant(item.Data))
         {
             Destroy(item.gameObject);
-            UpdateInventoryContext();
+            ConditionContext.SetBool("hasSeedling", false);
+            ConditionContext.SetBool("hasInventorySpace", true);
         }
     }
 

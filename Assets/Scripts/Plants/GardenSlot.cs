@@ -5,8 +5,8 @@ public class GardenSlot : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject seedlingVisual;
 
-    private const float GrowDuration = 180f;
-    private const float WaterReduction = 60f;
+    private const float GrowDuration = 90f;
+    private const float WaterReduction = 45f;
 
     private Seedling _seedling;
     private float _timeRemaining;
@@ -15,6 +15,7 @@ public class GardenSlot : MonoBehaviour, IInteractable
     private bool _occupied;
 
     public bool IsOccupied => _occupied;
+    public bool IsGrown    => _grown;
 
     public void Plant(Seedling seedling)
     {
@@ -61,6 +62,7 @@ public class GardenSlot : MonoBehaviour, IInteractable
         _timeRemaining = Mathf.Max(0f, _timeRemaining - WaterReduction);
 
         AudioManager.Instance.PlayWaterSound();
+        NodeTreeEvents.Fire("WaterPlant");
     }
 
     private void OnFullyGrown()
