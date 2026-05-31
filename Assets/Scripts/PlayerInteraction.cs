@@ -42,7 +42,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Interact pressed");
         currentFocused?.Interact();
     }
 
