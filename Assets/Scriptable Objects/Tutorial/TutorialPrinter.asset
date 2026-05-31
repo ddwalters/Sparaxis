@@ -27,6 +27,7 @@ MonoBehaviour:
   - rid: 693803550753423738
   - rid: 693803550753423739
   - rid: 693803550753423740
+  - rid: 693803550753423741
   Edges:
   - OutputNodeGuid: 207e1029-e970-44bc-8b3d-7bdac1f858d1
     InputNodeGuid: 8d602eb6-ac8b-4a51-8724-9041f733657e
@@ -38,6 +39,9 @@ MonoBehaviour:
     InputNodeGuid: 22197ce2-514d-4276-82f8-554002762361
     OutputPortIndex: 0
   - OutputNodeGuid: 22197ce2-514d-4276-82f8-554002762361
+    InputNodeGuid: c3d4e5f6-a7b8-9012-c3d4-e5f6a7b89012
+    OutputPortIndex: 0
+  - OutputNodeGuid: c3d4e5f6-a7b8-9012-c3d4-e5f6a7b89012
     InputNodeGuid: b93a3ca2-2aa4-44c6-9067-deb44a925f12
     OutputPortIndex: 0
   - OutputNodeGuid: ae23b9b8-8f48-4616-80aa-592f9797df08
@@ -232,3 +236,12 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         Key: hasSeenComputer
+    - rid: 693803550753423741
+      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: c3d4e5f6-a7b8-9012-c3d4-e5f6a7b89012
+        Position: {x: 1375, y: -366}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        EventKey: SetHasSeenPrinter

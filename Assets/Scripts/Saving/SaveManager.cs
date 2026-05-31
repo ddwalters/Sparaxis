@@ -24,6 +24,27 @@ public class SaveManager : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
+    private void OnEnable()
+    {
+        NodeTreeEvents.Subscribe("SetHasSeenPrinter",  OnSetHasSeenPrinter);
+        NodeTreeEvents.Subscribe("SetHasSeenGarden",   OnSetHasSeenGarden);
+        NodeTreeEvents.Subscribe("SetHasSeenShuttle",  OnSetHasSeenShuttle);
+        NodeTreeEvents.Subscribe("SetSeedlingCaptain", OnSetSeedlingCaptain);
+    }
+
+    private void OnDisable()
+    {
+        NodeTreeEvents.Unsubscribe("SetHasSeenPrinter",  OnSetHasSeenPrinter);
+        NodeTreeEvents.Unsubscribe("SetHasSeenGarden",   OnSetHasSeenGarden);
+        NodeTreeEvents.Unsubscribe("SetHasSeenShuttle",  OnSetHasSeenShuttle);
+        NodeTreeEvents.Unsubscribe("SetSeedlingCaptain", OnSetSeedlingCaptain);
+    }
+
+    private void OnSetHasSeenPrinter()  => SetMilestone("hasSeenPrinter",  true);
+    private void OnSetHasSeenGarden()   => SetMilestone("hasSeenGarden",   true);
+    private void OnSetHasSeenShuttle()  => SetMilestone("hasSeenShuttle",  true);
+    private void OnSetSeedlingCaptain() => SetMilestone("seedlingCaptain", true);
+
     public void Save(int slot)
     {
         SaveData data = new SaveData

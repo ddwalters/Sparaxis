@@ -32,6 +32,7 @@ MonoBehaviour:
   - rid: 693803550753423891
   - rid: 693803550753423892
   - rid: 693803550753423893
+  - rid: 693803550753423894
   Edges:
   - OutputNodeGuid: a7271189-5ea5-4510-93d9-e639413832c6
     InputNodeGuid: a203301c-7679-4b54-8b48-e53747e670cd
@@ -40,6 +41,9 @@ MonoBehaviour:
     InputNodeGuid: a7271189-5ea5-4510-93d9-e639413832c6
     OutputPortIndex: 0
   - OutputNodeGuid: a203301c-7679-4b54-8b48-e53747e670cd
+    InputNodeGuid: d4e5f6a7-b8c9-0123-d4e5-f6a7b8c90123
+    OutputPortIndex: 0
+  - OutputNodeGuid: d4e5f6a7-b8c9-0123-d4e5-f6a7b8c90123
     InputNodeGuid: 6e33ffc5-ee5d-4ff2-92ff-2bfa9b11622f
     OutputPortIndex: 0
   - OutputNodeGuid: e35d3695-c04b-4a50-a711-8c98a5bb0d49
@@ -300,3 +304,12 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         EventKey: CollectPlant
+    - rid: 693803550753423894
+      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: d4e5f6a7-b8c9-0123-d4e5-f6a7b8c90123
+        Position: {x: 1000, y: -170}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        EventKey: SetHasSeenGarden
