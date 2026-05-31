@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     [Header("Interaction SFX")]
     [SerializeField] private AudioClip printerSound;
     [SerializeField] private AudioClip gardenSound;
+    [SerializeField] private AudioClip waterSound;
     [SerializeField] private AudioClip shuttleSound;
 
     private void Awake()
@@ -45,25 +46,43 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        NodeTreeEvents.Subscribe("ShuttleGenome",     PlayShuttleSound);
-        NodeTreeEvents.Subscribe("PrintGenome",       PlayPrinterSound);
-        NodeTreeEvents.Subscribe("SetHasSeenGarden",  PlayGardenSound);
+        NodeTreeEvents.Subscribe("ShuttleGenome", PlayShuttleSound);
+        NodeTreeEvents.Subscribe("PrintGenome", PlayPrinterSound);
+        NodeTreeEvents.Subscribe("SetHasSeenGarden", PlayGardenSound);
     }
 
     private void OnDisable()
     {
-        NodeTreeEvents.Unsubscribe("ShuttleGenome",     PlayShuttleSound);
-        NodeTreeEvents.Unsubscribe("PrintGenome",       PlayPrinterSound);
-        NodeTreeEvents.Unsubscribe("SetHasSeenGarden",  PlayGardenSound);
+        NodeTreeEvents.Unsubscribe("ShuttleGenome", PlayShuttleSound);
+        NodeTreeEvents.Unsubscribe("PrintGenome", PlayPrinterSound);
+        NodeTreeEvents.Unsubscribe("SetHasSeenGarden", PlayGardenSound);
     }
 
-    private void PlayPrinterSound() => PlaySFX(printerSound);
-    private void PlayGardenSound()  => PlaySFX(gardenSound);
-    private void PlayShuttleSound() => PlaySFX(shuttleSound);
+    private const float MaxInteractionDuration = 5f;
+
+    private void PlayPrinterSound() => PlaySFXCapped(printerSound);
+    public  void PlayGardenSound()  => PlaySFXCapped(gardenSound);
+    public  void PlayWaterSound()   => PlaySFXCapped(waterSound);
+    private void PlayShuttleSound() => PlaySFXCapped(shuttleSound);
+
+    public void PlaySFXCapped(AudioClip clip)
+    {
+        if (clip == null) return;
+        StopCoroutine(nameof(StopSFXAfterDuration));
+        sfxSource.clip = clip;
+        sfxSource.Play();
+        StartCoroutine(nameof(StopSFXAfterDuration));
+    }
 
     public void PlaySFX(AudioClip clip)
     {
         if (clip == null) return;
         sfxSource.PlayOneShot(clip);
+    }
+
+    private IEnumerator StopSFXAfterDuration()
+    {
+        yield return new WaitForSeconds(MaxInteractionDuration);
+        sfxSource.Stop();
     }
 }

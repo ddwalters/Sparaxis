@@ -1,98 +1,72 @@
-using System.Collections;
 using NodeTree;
 using UnityEngine;
 
 public class PrinterInteractable : MonoBehaviour
 {
-    [SerializeField] private Transform inventoryContainer;
+    [SerializeField] private Transform itemHolder;
     [SerializeField] private GameObject seedlingPrefab;
-
-    private const float PrintDuration = 45f;
-
-    private bool _isPrinting;
 
     private void Start() => UpdateInventoryContext();
 
     private void OnEnable()
     {
         NodeTreeEvents.Subscribe("PrintGenome", OnPrintGenome);
+        NodeTreeEvents.Subscribe("PlantSeedling", OnPlantSeedling);
         SaveManager.OnContextReady += UpdateInventoryContext;
     }
 
     private void OnDisable()
     {
         NodeTreeEvents.Unsubscribe("PrintGenome", OnPrintGenome);
+        NodeTreeEvents.Unsubscribe("PlantSeedling", OnPlantSeedling);
         SaveManager.OnContextReady -= UpdateInventoryContext;
     }
 
     public void UpdateInventoryContext()
     {
-        ConditionContext.SetBool("hasInventorySpace", FindAvailableSlot() != null);
+        SeedlingItem current = itemHolder.GetComponentInChildren<SeedlingItem>();
+        ConditionContext.SetBool("hasInventorySpace", current == null);
+        ConditionContext.SetBool("hasSeedling", current != null);
 
-        var collection = SaveManager.Instance.Milestones.genomeCollection;
         bool hasDuplicate = false;
-
-        if (collection.Count > 0)
+        if (current != null)
         {
-            string latestName = collection[collection.Count - 1].plant.name;
-            foreach (Transform slot in inventoryContainer)
-            {
-                SeedlingItem item = slot.GetComponentInChildren<SeedlingItem>();
-                if (item != null && item.Data.sourcePlant.name == latestName)
-                {
-                    hasDuplicate = true;
-                    break;
-                }
-            }
+            var collection = SaveManager.Instance.Milestones.genomeCollection;
+            if (collection.Count > 0)
+                hasDuplicate = current.Data.sourcePlant.name == collection[collection.Count - 1].plant.name;
         }
 
         ConditionContext.SetBool("hasDuplicateSeedling", hasDuplicate);
     }
 
-    private void OnPrintGenome()
+    private void OnPlantSeedling()
     {
-        if (_isPrinting) return;
-
-        var collection = SaveManager.Instance.Milestones.genomeCollection;
-        if (collection.Count == 0)
+        SeedlingItem item = itemHolder.GetComponentInChildren<SeedlingItem>();
+        if (item == null)
         {
-            Debug.LogWarning("[Printer] No genomes in collection.");
+            Debug.LogWarning("[Printer] No seedling in inventory to plant.");
             return;
         }
 
-        GenomeRecord record = collection[collection.Count - 1];
-        StartCoroutine(PrintRoutine(record));
+        if (GardenManager.Instance.TryPlant(item.Data))
+        {
+            Destroy(item.gameObject);
+            UpdateInventoryContext();
+        }
     }
 
-    private IEnumerator PrintRoutine(GenomeRecord record)
+    private void OnPrintGenome()
     {
-        _isPrinting = true;
+        var collection = SaveManager.Instance.Milestones.genomeCollection;
+        Debug.Log($"[Printer] itemHolder={itemHolder}, genomes={collection.Count}, hasSeedling={itemHolder?.GetComponentInChildren<SeedlingItem>() != null}");
 
-        yield return new WaitForSeconds(PrintDuration);
+        if (collection.Count == 0) { Debug.LogWarning("[Printer] No genomes in collection."); return; }
+        if (itemHolder.GetComponentInChildren<SeedlingItem>() != null) return;
 
-        Transform slot = FindAvailableSlot();
-        if (slot == null)
-        {
-            Debug.LogWarning("[Printer] No available inventory slots.");
-            _isPrinting = false;
-            yield break;
-        }
-
-        Seedling seedling = GenerateSeedling(record);
-        GameObject obj = Instantiate(seedlingPrefab, slot);
-        obj.GetComponent<SeedlingItem>().Initialize(seedling);
+        Seedling seedling = GenerateSeedling(collection[collection.Count - 1]);
+        Instantiate(seedlingPrefab, itemHolder).GetComponent<SeedlingItem>().Initialize(seedling);
         SaveManager.Instance.SetMilestone("hasSequence", false);
         UpdateInventoryContext();
-
-        _isPrinting = false;
-    }
-
-    private Transform FindAvailableSlot()
-    {
-        foreach (Transform slot in inventoryContainer)
-            if (slot.childCount == 0)
-                return slot;
-        return null;
     }
 
     private static Seedling GenerateSeedling(GenomeRecord record)

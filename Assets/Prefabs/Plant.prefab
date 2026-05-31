@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8447351354190779549}
   - component: {fileID: 4665005343299792762}
   - component: {fileID: 8194261295595750658}
+  - component: {fileID: 2742713217150732250}
   - component: {fileID: 7489048527634895582}
   m_Layer: 6
   m_Name: Plant
@@ -136,6 +137,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodeTree.DialogInteractable
   indicator: {fileID: 3281172578707800176}
+--- !u!114 &2742713217150732250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625765756406281977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319246b7eb56751489bf1f7450d7fb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GardenSlot
+  seedlingVisual: {fileID: 855384008123669008, guid: f686c747ee82ff149ae81c1a1010e817, type: 3}
+  waterSound: {fileID: 0}
 --- !u!61 &7489048527634895582
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 public class GardenSlot : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject seedlingVisual;
-    [SerializeField] private AudioClip waterSound;
 
     private const float GrowDuration = 180f;
     private const float WaterReduction = 60f;
@@ -43,7 +42,8 @@ public class GardenSlot : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (!_occupied) return;
+        if (!_occupied)
+            return;
 
         if (!_grown)
         {
@@ -60,8 +60,7 @@ public class GardenSlot : MonoBehaviour, IInteractable
         _watered = true;
         _timeRemaining = Mathf.Max(0f, _timeRemaining - WaterReduction);
 
-        if (waterSound != null)
-            AudioManager.Instance.PlaySFX(waterSound);
+        AudioManager.Instance.PlayWaterSound();
     }
 
     private void OnFullyGrown()
