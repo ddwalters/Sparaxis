@@ -1,3 +1,5 @@
+using NodeTree;
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,11 +15,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputActionAsset inputActions;
 
     private bool isPaused;
+    private bool isPlaying;
+    public float PlayTime { get; set; }
 
     private void Awake()
     {
-        if (Instance != null) { Destroy(gameObject); return; }
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+    }
+
+    private void Update()
+    {
+        if (isPlaying)
+            PlayTime += Time.deltaTime;
     }
 
     private void OnEnable()
@@ -33,10 +48,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (player != null)
-            player.SetActive(false);
-
+        inputActions.FindActionMap("Player").Disable();
         virtualCamera.Follow = menuCameraTarget;
+        ShowCursor(true);
         UIManager.Instance.ShowMenu();
     }
 
@@ -50,39 +64,68 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        if (player != null)
-            player.SetActive(true);
-
+        SaveManager.Instance.NewGame();
+        isPlaying = true;
         inputActions.FindActionMap("Player").Enable();
         virtualCamera.Follow = player.transform;
+        ShowCursor(false);
+        UIManager.Instance.ShowHUD();
+
+        // TODO: @DW I want to add my storyline somehow, but in what way should I trigger things based on events/ accomplishemnts
+        //TriggerDialog()
+    }
+
+    public void LoadGame(int slot)
+    {
+        SaveManager.Instance.Load(slot);
+        isPlaying = true;
+        inputActions.FindActionMap("Player").Enable();
+        virtualCamera.Follow = player.transform;
+        ShowCursor(false);
         UIManager.Instance.ShowHUD();
     }
 
     public void PauseGame()
     {
+        // TODO: @DW When I add plants, I will need to make sure they don't grow on pause.
         isPaused = true;
+        isPlaying = false;
         inputActions.FindActionMap("Player").Disable();
         virtualCamera.Follow = menuCameraTarget;
+        ShowCursor(true);
         UIManager.Instance.ShowPause();
     }
 
     public void ResumeGame()
     {
         isPaused = false;
+        isPlaying = true;
         inputActions.FindActionMap("Player").Enable();
         virtualCamera.Follow = player.transform;
+        ShowCursor(false);
         UIManager.Instance.ShowHUD();
     }
 
     public void ReturnToMenu()
     {
         isPaused = false;
+        isPlaying = false;
         inputActions.FindActionMap("Player").Disable();
-
-        if (player != null)
-            player.SetActive(false);
-
         virtualCamera.Follow = menuCameraTarget;
+        ShowCursor(true);
         UIManager.Instance.ShowMenu();
     }
+
+    private void ShowCursor(bool show)
+    {
+        Cursor.visible = show;
+        Cursor.lockState = show ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+    public void TriggerDialog(NodeTreeTrigger trigger)
+    {
+        OnDialogRequested?.Invoke(trigger);
+    }
+
+    public event Action<NodeTreeTrigger> OnDialogRequested;
 }

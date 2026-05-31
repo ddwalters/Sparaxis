@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementInput;
 
     private Animator animator;
-    private Vector2 lastMoveDirection = Vector2.down;
+    [SerializeField] private Vector2 startFacingDirection = new Vector2(1, 1);
+    private Vector2 lastMoveDirection;
     public Vector2 FacingDirection => lastMoveDirection;
     private bool facingLeft = false;
 
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        lastMoveDirection = startFacingDirection.normalized;
     }
 
     private void OnEnable()
@@ -72,5 +74,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    public void SetFacingDirection(Vector2 direction)
+    {
+        lastMoveDirection = direction.normalized;
+
+        bool shouldFaceLeft = direction.x < 0;
+        if (shouldFaceLeft != facingLeft)
+            Flip();
     }
 }

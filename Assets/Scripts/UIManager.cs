@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject dialogPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject menuPanel;
+    [SerializeField] private SaveLoadPanel saveLoadPanel;
 
     private void Awake()
     {
@@ -20,18 +21,21 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
-    private void SetPanels(bool hud = false, bool dialog = false, bool pause = false, bool menu = false)
+    private void SetPanels(GameObject active)
     {
-        hudPanel.SetActive(hud);
-        dialogPanel.SetActive(dialog);
-        pausePanel.SetActive(pause);
-        menuPanel.SetActive(menu);
+        hudPanel.SetActive(hudPanel == active);
+        dialogPanel.SetActive(dialogPanel == active);
+        pausePanel.SetActive(pausePanel == active);
+        menuPanel.SetActive(menuPanel == active);
+        saveLoadPanel.gameObject.SetActive(saveLoadPanel.gameObject == active);
     }
 
-    public void ShowHUD() => SetPanels(hud: true);
-    public void ShowDialog() => SetPanels(dialog: true);
-    public void ShowPause() => SetPanels(hud: true, pause: true);
-    public void ShowMenu() => SetPanels(menu: true);
+    public void ShowHUD() => SetPanels(hudPanel);
+    public void ShowDialog() => SetPanels(dialogPanel);
+    public void ShowPause() => SetPanels(pausePanel);
+    public void ShowMenu() => SetPanels(menuPanel);
+    public void ShowSaveMenu() { SetPanels(saveLoadPanel.gameObject); saveLoadPanel.Open(true); }
+    public void ShowLoadMenu() { SetPanels(saveLoadPanel.gameObject); saveLoadPanel.Open(false); }
 
     public void OnStartButtonPressed() => GameManager.Instance.StartGame();
     public void OnResumeButtonPressed() => GameManager.Instance.ResumeGame();
