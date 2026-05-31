@@ -13,38 +13,71 @@ MonoBehaviour:
   m_Name: Printer
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803521687159012
-  - rid: 693803521687159013
-  - rid: 693803521687159014
+  - rid: 693803540190330977
+  - rid: 693803540190330978
+  - rid: 693803540190330979
+  - rid: 693803540190330980
+  - rid: 693803540190330981
   Edges:
-  - OutputNodeGuid: 294e4e44-8549-4d9d-977c-36879e22f2ac
-    InputNodeGuid: dc6a79c3-0197-4c13-84f7-5dfdcd807b45
-    OutputPortIndex: 0
   - OutputNodeGuid: dc6a79c3-0197-4c13-84f7-5dfdcd807b45
     InputNodeGuid: 1477369c-1245-484b-976b-4b717bb76fa1
     OutputPortIndex: 0
+  - OutputNodeGuid: 294e4e44-8549-4d9d-977c-36879e22f2ac
+    InputNodeGuid: e7c21a70-af8a-4e9e-aecd-4a7aa7595cee
+    OutputPortIndex: 0
+  - OutputNodeGuid: e7c21a70-af8a-4e9e-aecd-4a7aa7595cee
+    InputNodeGuid: dc6a79c3-0197-4c13-84f7-5dfdcd807b45
+    OutputPortIndex: 0
+  - OutputNodeGuid: e7c21a70-af8a-4e9e-aecd-4a7aa7595cee
+    InputNodeGuid: fa6fd204-1387-4772-acf1-fc376ee996d0
+    OutputPortIndex: 1
   AudioClips: []
   defaultTextSpeed: 0.05
+  IndicatorIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 693803521687159012
-      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: 294e4e44-8549-4d9d-977c-36879e22f2ac
-        Position: {x: 0, y: 26}
-        HasSeen: 0
-    - rid: 693803521687159013
-      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: dc6a79c3-0197-4c13-84f7-5dfdcd807b45
-        Position: {x: 254, y: 66}
-        HasSeen: 0
-        DialogText: Print the new genome sequence seedling...
-        AudioClip: {fileID: 0}
-    - rid: 693803521687159014
+    - rid: 693803540190330977
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 1477369c-1245-484b-976b-4b717bb76fa1
-        Position: {x: 696, y: 103}
+        Position: {x: 769, y: 103}
         HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803540190330978
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: dc6a79c3-0197-4c13-84f7-5dfdcd807b45
+        Position: {x: 362, y: 67}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Print the new genome sequence seedling...
+        AudioClip: {fileID: 0}
+    - rid: 693803540190330979
+      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 294e4e44-8549-4d9d-977c-36879e22f2ac
+        Position: {x: -141, y: 67}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803540190330980
+      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: e7c21a70-af8a-4e9e-aecd-4a7aa7595cee
+        Position: {x: 16, y: 67}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        Key: seedlingCaptian
+    - rid: 693803540190330981
+      type: {class: StartNewTreeNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: fa6fd204-1387-4772-acf1-fc376ee996d0
+        Position: {x: 378, y: 340}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        NodeTreeGraphSO: {fileID: 11400000, guid: 47b2ce191cf0d3f4ba73e6d6189f83ad, type: 2}

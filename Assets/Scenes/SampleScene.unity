@@ -28686,7 +28686,7 @@ MonoBehaviour:
   defaultTextLocation: {fileID: 1404476937}
   buttonListContainer: {fileID: 1129923745}
   dialogCanvas: {fileID: 1293870418}
-  styledButtonPrefab: {fileID: 995546308785514772, guid: e4c57df182ff6b543ac324f635a2ac29, type: 3}
+  styledButtonPrefab: {fileID: 6869063367026139603, guid: 3160b6c46f3b7ce42a4dd0ba6013fbef, type: 3}
   continueAction: {fileID: 3001919216989983466, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   audioSource: {fileID: 0}
 --- !u!4 &2039433324

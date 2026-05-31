@@ -13,38 +13,71 @@ MonoBehaviour:
   m_Name: Computer
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803521687159004
-  - rid: 693803521687159005
-  - rid: 693803521687159006
+  - rid: 693803540190330956
+  - rid: 693803540190330957
+  - rid: 693803540190330958
+  - rid: 693803540190330959
+  - rid: 693803540190330960
   Edges:
-  - OutputNodeGuid: 61da0742-f8dc-4704-99f7-56ce510a000c
-    InputNodeGuid: d0f0f7fe-e5f0-4e09-bd11-0132983ca042
-    OutputPortIndex: 0
   - OutputNodeGuid: d0f0f7fe-e5f0-4e09-bd11-0132983ca042
     InputNodeGuid: e1185eef-b389-4aa9-b840-ce277f247790
     OutputPortIndex: 0
+  - OutputNodeGuid: 61da0742-f8dc-4704-99f7-56ce510a000c
+    InputNodeGuid: 41fcf936-8805-4307-9a87-341bb9d32a18
+    OutputPortIndex: 0
+  - OutputNodeGuid: 41fcf936-8805-4307-9a87-341bb9d32a18
+    InputNodeGuid: d0f0f7fe-e5f0-4e09-bd11-0132983ca042
+    OutputPortIndex: 0
+  - OutputNodeGuid: 41fcf936-8805-4307-9a87-341bb9d32a18
+    InputNodeGuid: 4209f2c9-14f4-4695-a0cb-25d0027379d3
+    OutputPortIndex: 1
   AudioClips: []
   defaultTextSpeed: 0.05
+  IndicatorIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 693803521687159004
+    - rid: 693803540190330956
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 61da0742-f8dc-4704-99f7-56ce510a000c
-        Position: {x: 183, y: 147}
+        Position: {x: 55, y: 189}
         HasSeen: 0
-    - rid: 693803521687159005
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803540190330957
+      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 41fcf936-8805-4307-9a87-341bb9d32a18
+        Position: {x: 204, y: 176}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        Key: seedlingCaptian
+    - rid: 693803540190330958
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: d0f0f7fe-e5f0-4e09-bd11-0132983ca042
-        Position: {x: 383, y: 157}
+        Position: {x: 554, y: 79}
         HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
         DialogText: Create new genome sequence
         AudioClip: {fileID: 0}
-    - rid: 693803521687159006
+    - rid: 693803540190330959
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: e1185eef-b389-4aa9-b840-ce277f247790
-        Position: {x: 756, y: 192}
+        Position: {x: 964, y: 144}
         HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803540190330960
+      type: {class: StartNewTreeNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 4209f2c9-14f4-4695-a0cb-25d0027379d3
+        Position: {x: 549, y: 378}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        NodeTreeGraphSO: {fileID: 11400000, guid: 638d1fdb9b5365e459b150d37939ace3, type: 2}

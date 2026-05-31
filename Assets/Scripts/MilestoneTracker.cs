@@ -4,7 +4,6 @@ using System;
 public class MilestoneTracker
 {
     #region Tutorial
-    public bool hasInspectedEquipment; // False, the first SO on all equipment should be explanitory
     public bool hasSeenComputer;
     public bool hasSeenPrinter;
     public bool hasSeenGarden;

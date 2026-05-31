@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2a7f2f014708499c628fd68af88ac, type: 3}
+  m_Name: Beginnings
+  m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
+  Nodes:
+  - rid: 693803540190330982
+  - rid: 693803540190330983
+  - rid: 693803540190330984
+  - rid: 693803540190330985
+  - rid: 693803540190330986
+  Edges:
+  - OutputNodeGuid: 4f8b3803-576f-4e6c-9299-0a0d8e3a5308
+    InputNodeGuid: 82687852-0f84-4522-b7d3-2505743b5b56
+    OutputPortIndex: 0
+  - OutputNodeGuid: 82687852-0f84-4522-b7d3-2505743b5b56
+    InputNodeGuid: 8b1b8775-fc23-454c-a874-10af4f6e052d
+    OutputPortIndex: 0
+  - OutputNodeGuid: 8b1b8775-fc23-454c-a874-10af4f6e052d
+    InputNodeGuid: b9230856-c582-498d-a863-f6a10a86b9e5
+    OutputPortIndex: 0
+  - OutputNodeGuid: b9230856-c582-498d-a863-f6a10a86b9e5
+    InputNodeGuid: 9e322627-4e00-42db-9ce7-59117da03d83
+    OutputPortIndex: 0
+  AudioClips: []
+  defaultTextSpeed: 0.05
+  IndicatorIcon: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 693803540190330982
+      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 4f8b3803-576f-4e6c-9299-0a0d8e3a5308
+        Position: {x: 0, y: 0}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803540190330983
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 82687852-0f84-4522-b7d3-2505743b5b56
+        Position: {x: 217, y: 0}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Huh, So this is it...
+        AudioClip: {fileID: 0}
+    - rid: 693803540190330984
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 8b1b8775-fc23-454c-a874-10af4f6e052d
+        Position: {x: 568, y: 0}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: I really am humanity's last hope.
+        AudioClip: {fileID: 0}
+    - rid: 693803540190330985
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: b9230856-c582-498d-a863-f6a10a86b9e5
+        Position: {x: 910, y: 0}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: . . . Lets see, what did the team manage to send up with me?
+        AudioClip: {fileID: 0}
+    - rid: 693803540190330986
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 9e322627-4e00-42db-9ce7-59117da03d83
+        Position: {x: 1297, y: 37}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
