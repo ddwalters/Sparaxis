@@ -18,7 +18,7 @@ public class PrinterInteractable : MonoBehaviour
 
     public void UpdateInventoryContext()
     {
-        ConditionContext.SetBool("hasInventorySpace", FindAvailableSlot() != null);
+        ConditionContext.SetBool("hasInventorySpace", true);
 
         var collection = SaveManager.Instance.Milestones.genomeCollection;
         bool hasDuplicate = false;
@@ -81,7 +81,8 @@ public class PrinterInteractable : MonoBehaviour
     private Transform FindAvailableSlot()
     {
         foreach (Transform slot in inventoryContainer)
-            if (slot.childCount == 0) return slot;
+            if (slot.childCount == 0)
+                return slot;
         return null;
     }
 
