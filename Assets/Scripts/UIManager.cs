@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private SaveLoadPanel saveLoadPanel;
     [SerializeField] private GameObject sequenceMinigamePanel;
+    [SerializeField] private GameObject printResultPanel;
 
     private void Awake()
     {
@@ -30,13 +31,15 @@ public class UIManager : MonoBehaviour
         menuPanel.SetActive(menuPanel == active);
         saveLoadPanel.gameObject.SetActive(saveLoadPanel.gameObject == active);
         sequenceMinigamePanel.SetActive(sequenceMinigamePanel == active);
+        if (printResultPanel != null) printResultPanel.SetActive(printResultPanel == active);
     }
 
-    public void ShowHUD() => SetPanels(hudPanel);
-    public void ShowDialog() => SetPanels(dialogPanel);
-    public void ShowPause() => SetPanels(pausePanel);
-    public void ShowMenu() => SetPanels(menuPanel);
+    public void ShowHUD()              => SetPanels(hudPanel);
+    public void ShowDialog()           => SetPanels(dialogPanel);
+    public void ShowPause()            => SetPanels(pausePanel);
+    public void ShowMenu()             => SetPanels(menuPanel);
     public void ShowSequenceMinigame() => SetPanels(sequenceMinigamePanel);
+    public void ShowPrintResult() => SetPanels(printResultPanel);
     public void ShowSaveMenu() { SetPanels(saveLoadPanel.gameObject); saveLoadPanel.Open(true); }
     public void ShowLoadMenu() { SetPanels(saveLoadPanel.gameObject); saveLoadPanel.Open(false); }
 

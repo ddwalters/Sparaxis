@@ -31,6 +31,7 @@ public class SequenceMinigame : MonoBehaviour
 
     private void OpenMinigame()
     {
+        SaveManager.Instance.SetMilestone("hasSeenComputer", true);
         GameManager.Instance.DisablePlayerInput();
         panel.OnComplete = CloseMinigame;
         panel.StartFresh();
@@ -39,8 +40,27 @@ public class SequenceMinigame : MonoBehaviour
 
     public void CloseMinigame()
     {
+        RecordGenome();
         GameManager.Instance.EnablePlayerInput();
         UIManager.Instance.ShowDialog();
+    }
+
+    private void RecordGenome()
+    {
+        PlantData plant = panel.LastCompletedPlant ?? panel.CurrentPlant;
+        if (plant == null) return;
+
+        int score = panel.LastCompletedPlant != null ? panel.LastCompletedScore : 0;
+
+        var collection = SaveManager.Instance.Milestones.genomeCollection;
+        GenomeRecord existing = collection.Find(r => r.plant.name == plant.name);
+
+        if (existing != null)
+            existing.score = Mathf.Max(existing.score, score);
+        else
+            collection.Add(new GenomeRecord { plant = plant, score = score });
+
+        SaveManager.Instance.SetMilestone("hasSequence", true);
     }
 
     private void SetHasSeenComputer()

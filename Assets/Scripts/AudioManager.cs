@@ -57,11 +57,12 @@ public class AudioManager : MonoBehaviour
         NodeTreeEvents.Unsubscribe("SetHasSeenGarden",  PlayGardenSound);
     }
 
-    private void PlayPrinterSound() => PlaySFX(printerSound);
     private void PlayGardenSound()  => PlaySFX(gardenSound);
     private void PlayShuttleSound() => PlaySFX(shuttleSound);
 
-    private void PlaySFX(AudioClip clip)
+    public void PlayPrinterSound() => PlaySFX(printerSound);
+
+    public void PlaySFX(AudioClip clip)
     {
         if (clip == null) return;
         sfxSource.PlayOneShot(clip);
