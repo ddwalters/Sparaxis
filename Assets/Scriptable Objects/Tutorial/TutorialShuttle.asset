@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: TutorialShuttle
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
+  - rid: 693803542726312129
   - rid: 693803542726312125
   - rid: 693803542726312126
   - rid: 693803542726312127
   - rid: 693803542726312128
-  - rid: 693803542726312129
   - rid: 693803542726312130
   - rid: 693803542726312131
   - rid: 693803542726312132

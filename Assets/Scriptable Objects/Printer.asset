@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Printer
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
+  - rid: 693803542726312100
   - rid: 693803542726312098
   - rid: 693803542726312099
-  - rid: 693803542726312100
   - rid: 693803542726312101
   - rid: 693803542726312102
   Edges:
