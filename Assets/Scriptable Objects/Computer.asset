@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2a7f2f014708499c628fd68af88ac, type: 3}
+  m_Name: Computer
+  m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
+  Nodes:
+  - rid: 693803521687159004
+  - rid: 693803521687159005
+  - rid: 693803521687159006
+  Edges:
+  - OutputNodeGuid: 61da0742-f8dc-4704-99f7-56ce510a000c
+    InputNodeGuid: d0f0f7fe-e5f0-4e09-bd11-0132983ca042
+    OutputPortIndex: 0
+  - OutputNodeGuid: d0f0f7fe-e5f0-4e09-bd11-0132983ca042
+    InputNodeGuid: e1185eef-b389-4aa9-b840-ce277f247790
+    OutputPortIndex: 0
+  AudioClips: []
+  defaultTextSpeed: 0.05
+  references:
+    version: 2
+    RefIds:
+    - rid: 693803521687159004
+      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 61da0742-f8dc-4704-99f7-56ce510a000c
+        Position: {x: 183, y: 147}
+        HasSeen: 0
+    - rid: 693803521687159005
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: d0f0f7fe-e5f0-4e09-bd11-0132983ca042
+        Position: {x: 383, y: 157}
+        HasSeen: 0
+        DialogText: Create new genome sequence
+        AudioClip: {fileID: 0}
+    - rid: 693803521687159006
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: e1185eef-b389-4aa9-b840-ce277f247790
+        Position: {x: 756, y: 192}
+        HasSeen: 0

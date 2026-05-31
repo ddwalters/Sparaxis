@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2a7f2f014708499c628fd68af88ac, type: 3}
+  m_Name: Garden
+  m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
+  Nodes:
+  - rid: 693803521687159008
+  - rid: 693803521687159009
+  - rid: 693803521687159010
+  Edges:
+  - OutputNodeGuid: 3573618d-9bef-4061-8807-ae4f40d96c33
+    InputNodeGuid: 888b43d5-b277-45c7-882b-e0b54878fcb2
+    OutputPortIndex: 0
+  - OutputNodeGuid: 888b43d5-b277-45c7-882b-e0b54878fcb2
+    InputNodeGuid: 0f239c47-f75e-4e06-91d7-83d052fa2ae0
+    OutputPortIndex: 0
+  AudioClips: []
+  defaultTextSpeed: 0.05
+  references:
+    version: 2
+    RefIds:
+    - rid: 693803521687159008
+      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 3573618d-9bef-4061-8807-ae4f40d96c33
+        Position: {x: 113, y: 69}
+        HasSeen: 0
+    - rid: 693803521687159009
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 888b43d5-b277-45c7-882b-e0b54878fcb2
+        Position: {x: 291, y: 69}
+        HasSeen: 0
+        DialogText: Plant your new genome seedling...
+        AudioClip: {fileID: 0}
+    - rid: 693803521687159010
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 0f239c47-f75e-4e06-91d7-83d052fa2ae0
+        Position: {x: 679, y: 81}
+        HasSeen: 0

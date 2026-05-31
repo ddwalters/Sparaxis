@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2a7f2f014708499c628fd68af88ac, type: 3}
+  m_Name: LaunchPod
+  m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
+  Nodes:
+  - rid: 693803521687159019
+  - rid: 693803521687159020
+  - rid: 693803521687159021
+  Edges:
+  - OutputNodeGuid: 2d47abd2-2867-4fcb-8be1-254716c9783a
+    InputNodeGuid: 3f8b9939-f382-4aca-b29f-2f06002574ad
+    OutputPortIndex: 0
+  - OutputNodeGuid: 3f8b9939-f382-4aca-b29f-2f06002574ad
+    InputNodeGuid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
+    OutputPortIndex: 0
+  AudioClips: []
+  defaultTextSpeed: 0.05
+  references:
+    version: 2
+    RefIds:
+    - rid: 693803521687159019
+      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 2d47abd2-2867-4fcb-8be1-254716c9783a
+        Position: {x: 0, y: 26}
+        HasSeen: 0
+    - rid: 693803521687159020
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 3f8b9939-f382-4aca-b29f-2f06002574ad
+        Position: {x: 271, y: 50}
+        HasSeen: 0
+        DialogText: Launch your succesful seeds back to earth. For Democracy!
+        AudioClip: {fileID: 0}
+    - rid: 693803521687159021
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
+        Position: {x: 692, y: 61}
+        HasSeen: 0

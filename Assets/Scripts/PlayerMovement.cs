@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementInput;
 
     private Animator animator;
-    private Vector2 lastMoveDirection;
+    private Vector2 lastMoveDirection = Vector2.down;
+    public Vector2 FacingDirection => lastMoveDirection;
     private bool facingLeft = false;
 
     private void Awake()
@@ -42,24 +43,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * movementInput);
         Animate();
 
         if (movementInput.x < 0 && !facingLeft || movementInput.x > 0 && facingLeft)
             Flip();
     }
 
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * movementInput);
+    }
+
     private void Animate()
     {
         if (animator != null)
         {
-            animator.SetFloat("MoveX", movementInput.x);
-            animator.SetFloat("MoveY", movementInput.y);
+            animator.SetFloat("MoveX", lastMoveDirection.x);
+            animator.SetFloat("MoveY", lastMoveDirection.y);
             animator.SetFloat("MoveMagnitude", movementInput.magnitude);
-            animator.SetFloat("LastMoveX", lastMoveDirection.x);
-            animator.SetFloat("LastMoveY", lastMoveDirection.y);
         }
     }
 
