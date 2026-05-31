@@ -3,7 +3,19 @@ using UnityEngine;
 
 public class SequenceMinigame : MonoBehaviour
 {
+    public static SequenceMinigame Instance { get; private set; }
+
     [SerializeField] private SequenceMinigamePanel panel;
+
+    private void Awake()
+    {
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
+    }
+
+    public PlantData CurrentPlant => panel.CurrentPlant;
+    public PlantData LastCompletedPlant => panel.LastCompletedPlant;
+    public int LastCompletedScore => panel.LastCompletedScore;
 
     private void OnEnable()
     {

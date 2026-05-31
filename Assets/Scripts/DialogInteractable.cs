@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace NodeTree
@@ -35,7 +36,7 @@ namespace NodeTree
             StartCoroutine(WaitForDialogEnd());
         }
 
-        private System.Collections.IEnumerator WaitForDialogEnd()
+        private IEnumerator WaitForDialogEnd()
         {
             yield return new WaitUntil(() => !DialogRunner.Instance.IsDialogActive);
             UIManager.Instance.ShowHUD();

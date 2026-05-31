@@ -13,15 +13,42 @@ MonoBehaviour:
   m_Name: TutorialPrinter
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803540190330971
-  Edges: []
-  AudioClips: []
+  - rid: 693803542726312178
+  - rid: 693803542726312179
+  - rid: 693803542726312180
+  - rid: 693803542726312181
+  - rid: 693803542726312182
+  - rid: 693803542726312183
+  - rid: 693803542726312184
+  - rid: 693803542726312185
+  Edges:
+  - OutputNodeGuid: 9a9ea658-a463-4847-ac78-d967dc4a1cd2
+    InputNodeGuid: 4def0070-4d2d-4264-b403-7184b2241587
+    OutputPortIndex: 0
+  - OutputNodeGuid: 4def0070-4d2d-4264-b403-7184b2241587
+    InputNodeGuid: 7421df50-8650-44c9-a141-e5b922f937cc
+    OutputPortIndex: 0
+  - OutputNodeGuid: 4def0070-4d2d-4264-b403-7184b2241587
+    InputNodeGuid: 207e1029-e970-44bc-8b3d-7bdac1f858d1
+    OutputPortIndex: 1
+  - OutputNodeGuid: 207e1029-e970-44bc-8b3d-7bdac1f858d1
+    InputNodeGuid: 8d602eb6-ac8b-4a51-8724-9041f733657e
+    OutputPortIndex: 0
+  - OutputNodeGuid: 8d602eb6-ac8b-4a51-8724-9041f733657e
+    InputNodeGuid: 5041bbf2-2926-4feb-91ce-6282eee732ac
+    OutputPortIndex: 0
+  - OutputNodeGuid: 7421df50-8650-44c9-a141-e5b922f937cc
+    InputNodeGuid: 22197ce2-514d-4276-82f8-554002762361
+    OutputPortIndex: 0
+  - OutputNodeGuid: 22197ce2-514d-4276-82f8-554002762361
+    InputNodeGuid: b93a3ca2-2aa4-44c6-9067-deb44a925f12
+    OutputPortIndex: 0
   defaultTextSpeed: 0.05
   IndicatorIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 693803540190330971
+    - rid: 693803542726312178
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 9a9ea658-a463-4847-ac78-d967dc4a1cd2
@@ -29,3 +56,84 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
+    - rid: 693803542726312179
+      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 4def0070-4d2d-4264-b403-7184b2241587
+        Position: {x: 160, y: 0}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        Key: hasSeenComputer
+    - rid: 693803542726312180
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 7421df50-8650-44c9-a141-e5b922f937cc
+        Position: {x: 516, y: -121}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: The printer seems to have automatically downloaded the sequence
+          once the computer finishes. Glad I don't have to deal with printer connection
+          issues out here. . .
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312181
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 207e1029-e970-44bc-8b3d-7bdac1f858d1
+        Position: {x: 291, y: 214}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: This organic printer is useless if I don't have a sequence ready.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312182
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 8d602eb6-ac8b-4a51-8724-9041f733657e
+        Position: {x: 636, y: 214}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: <i>I should look at the computer next to this.</i>
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312183
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 5041bbf2-2926-4feb-91ce-6282eee732ac
+        Position: {x: 971, y: 231}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803542726312184
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: b93a3ca2-2aa4-44c6-9067-deb44a925f12
+        Position: {x: 1341, y: -73}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803542726312185
+      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 22197ce2-514d-4276-82f8-554002762361
+        Position: {x: 898, y: -101}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        EventKey: PrintGenome

@@ -10,6 +10,7 @@ public class SequenceMinigamePanel : MonoBehaviour
     [SerializeField] private Transform tileContainer;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI plantNameText;
 
     private static readonly ArrowDir[] Directions = { ArrowDir.Up, ArrowDir.Down, ArrowDir.Left, ArrowDir.Right };
     private static readonly float[] Rotations = { 0f, 180f, 90f, -90f };
@@ -21,6 +22,9 @@ public class SequenceMinigamePanel : MonoBehaviour
     private int _totalScore;
     private float _elapsed;
 
+    public PlantData CurrentPlant { get; private set; }
+    public PlantData LastCompletedPlant { get; private set; }
+    public int LastCompletedScore { get; private set; }
     public Action OnComplete;
 
     private const float TimerDuration = 15f;
@@ -49,6 +53,8 @@ public class SequenceMinigamePanel : MonoBehaviour
             {
                 _totalScore += ScoreForSequence(_sequence.Length);
                 scoreText.text = _totalScore.ToString();
+                LastCompletedPlant = CurrentPlant;
+                LastCompletedScore = _totalScore;
                 NewSequence();
             }
         }
@@ -70,6 +76,8 @@ public class SequenceMinigamePanel : MonoBehaviour
 
     private void NewSequence()
     {
+        CurrentPlant = PlantDatabase.GetRandom();
+        plantNameText.text = CurrentPlant.name;
         GenerateSequence();
         SpawnTiles();
         _progress = 0;
