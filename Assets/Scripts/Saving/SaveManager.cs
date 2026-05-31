@@ -44,15 +44,18 @@ public class SaveManager : MonoBehaviour
 
     public void NewGame()
     {
+        Debug.LogWarning($"[SaveManager] NewGame() called\n{System.Environment.StackTrace}");
         Milestones = new MilestoneTracker();
         GameManager.Instance.PlayTime = 0f;
         player.transform.position = new Vector3(-0.54f, -0.04f, 0f); // looks cooler if player starts here...
         playerMovement.SetFacingDirection(new Vector2(1f, 1f));
+        ConditionContext.Clear();
         ApplyMilestonesToContext();
     }
 
     public void Load(int slot)
     {
+        Debug.LogWarning($"[SaveManager] Load({slot}) called\n{System.Environment.StackTrace}");
         if (!File.Exists(SavePath(slot)))
         {
             Debug.LogWarning($"No save file found for slot {slot}!");
@@ -64,31 +67,36 @@ public class SaveManager : MonoBehaviour
         playerMovement.SetFacingDirection(data.playerFacingDirection);
         GameManager.Instance.PlayTime = data.playTimeSeconds;
         Milestones = data.milestones;
+        ConditionContext.Clear();
         ApplyMilestonesToContext();
     }
 
     public void SetMilestone(string key, bool value)
     {
+        if (key == "hasSeenComputer")
+            Debug.Log($"[SaveManager] SetMilestone hasSeenComputer={value}\n{System.Environment.StackTrace}");
         switch (key)
         {
             case "hasSeenComputer": Milestones.hasSeenComputer = value; break;
-            case "hasSeenPrinter": Milestones.hasSeenPrinter = value; break;
-            case "hasSeenGarden": Milestones.hasSeenGarden = value; break;
-            case "hasSeenShuttle": Milestones.hasSeenShuttle = value; break;
+            case "hasSeenPrinter":  Milestones.hasSeenPrinter  = value; break;
+            case "hasSeenGarden":   Milestones.hasSeenGarden   = value; break;
+            case "hasSeenShuttle":  Milestones.hasSeenShuttle  = value; break;
             case "seedlingCaptain": Milestones.seedlingCaptain = value; break;
+            case "hasSequence":     Milestones.hasSequence     = value; break;
             default: Debug.LogWarning($"[SaveManager] Unknown milestone key: '{key}'"); break;
         }
         ConditionContext.SetBool(key, value);
     }
 
-    private void ApplyMilestonesToContext()
+    public void ApplyMilestonesToContext()
     {
-        ConditionContext.Clear();
+        Debug.Log($"[SaveManager] ApplyMilestonesToContext hasSeenComputer={Milestones.hasSeenComputer}\n{System.Environment.StackTrace}");
         ConditionContext.SetBool("hasSeenComputer", Milestones.hasSeenComputer);
-        ConditionContext.SetBool("hasSeenPrinter", Milestones.hasSeenPrinter);
-        ConditionContext.SetBool("hasSeenGarden", Milestones.hasSeenGarden);
-        ConditionContext.SetBool("hasSeenShuttle", Milestones.hasSeenShuttle);
+        ConditionContext.SetBool("hasSeenPrinter",  Milestones.hasSeenPrinter);
+        ConditionContext.SetBool("hasSeenGarden",   Milestones.hasSeenGarden);
+        ConditionContext.SetBool("hasSeenShuttle",  Milestones.hasSeenShuttle);
         ConditionContext.SetBool("seedlingCaptain", Milestones.seedlingCaptain);
+        ConditionContext.SetBool("hasSequence",     Milestones.hasSequence);
     }
 
     public SaveSlotMeta GetSlotMeta(int slot)

@@ -31,6 +31,7 @@ public class SequenceMinigame : MonoBehaviour
 
     private void OpenMinigame()
     {
+        SaveManager.Instance.SetMilestone("hasSeenComputer", true);
         GameManager.Instance.DisablePlayerInput();
         panel.OnComplete = CloseMinigame;
         panel.StartFresh();

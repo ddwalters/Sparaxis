@@ -27,7 +27,7 @@ public class SequenceMinigamePanel : MonoBehaviour
     public int LastCompletedScore { get; private set; }
     public Action OnComplete;
 
-    private const float TimerDuration = 15f;
+    private const float TimerDuration = 30f;
 
     private void Update()
     {

@@ -46,14 +46,14 @@ public class AudioManager : MonoBehaviour
     private void OnEnable()
     {
         NodeTreeEvents.Subscribe("ShuttleGenome",     PlayShuttleSound);
-        NodeTreeEvents.Subscribe("SetHasSeenPrinter", PlayPrinterSound);
+        NodeTreeEvents.Subscribe("PrintGenome",       PlayPrinterSound);
         NodeTreeEvents.Subscribe("SetHasSeenGarden",  PlayGardenSound);
     }
 
     private void OnDisable()
     {
         NodeTreeEvents.Unsubscribe("ShuttleGenome",     PlayShuttleSound);
-        NodeTreeEvents.Unsubscribe("SetHasSeenPrinter", PlayPrinterSound);
+        NodeTreeEvents.Unsubscribe("PrintGenome",       PlayPrinterSound);
         NodeTreeEvents.Unsubscribe("SetHasSeenGarden",  PlayGardenSound);
     }
 
@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
     private void PlayGardenSound()  => PlaySFX(gardenSound);
     private void PlayShuttleSound() => PlaySFX(shuttleSound);
 
-    private void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip)
     {
         if (clip == null) return;
         sfxSource.PlayOneShot(clip);

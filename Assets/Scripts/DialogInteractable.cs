@@ -31,8 +31,10 @@ namespace NodeTree
 
         public void Interact()
         {
+            Debug.Log($"[Interact] {gameObject.name} BEFORE trigger — hasSeenComputer={ConditionContext.GetBool("hasSeenComputer")}");
             UIManager.Instance.ShowDialog();
             trigger.Interact();
+            Debug.Log($"[Interact] {gameObject.name} AFTER trigger — hasSeenComputer={ConditionContext.GetBool("hasSeenComputer")}");
             StartCoroutine(WaitForDialogEnd());
         }
 
