@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ae2a7f2f014708499c628fd68af88ac, type: 3}
-  m_Name: LaunchPod
+  m_Name: Shuttle
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803540190330966
-  - rid: 693803540190330967
-  - rid: 693803540190330968
-  - rid: 693803540190330969
-  - rid: 693803540190330970
+  - rid: 693803542726312092
+  - rid: 693803542726312093
+  - rid: 693803542726312094
+  - rid: 693803542726312095
+  - rid: 693803542726312096
+  - rid: 693803542726312097
   Edges:
-  - OutputNodeGuid: 3f8b9939-f382-4aca-b29f-2f06002574ad
-    InputNodeGuid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
-    OutputPortIndex: 0
   - OutputNodeGuid: 0e7cf66d-946a-4cac-9853-d7dc671550b6
     InputNodeGuid: 3f8b9939-f382-4aca-b29f-2f06002574ad
     OutputPortIndex: 0
@@ -31,21 +29,18 @@ MonoBehaviour:
   - OutputNodeGuid: 0e7cf66d-946a-4cac-9853-d7dc671550b6
     InputNodeGuid: 9ecbdf0d-6a93-4a7b-93dc-6c859d3f29d9
     OutputPortIndex: 1
-  AudioClips: []
+  - OutputNodeGuid: 3f8b9939-f382-4aca-b29f-2f06002574ad
+    InputNodeGuid: a5809df4-e8ac-4852-9c03-5c38632bd44a
+    OutputPortIndex: 0
+  - OutputNodeGuid: a5809df4-e8ac-4852-9c03-5c38632bd44a
+    InputNodeGuid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
+    OutputPortIndex: 0
   defaultTextSpeed: 0.05
   IndicatorIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 693803540190330966
-      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
-        Position: {x: 692, y: 61}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-    - rid: 693803540190330967
+    - rid: 693803542726312092
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 2d47abd2-2867-4fcb-8be1-254716c9783a
@@ -53,7 +48,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803540190330968
+    - rid: 693803542726312093
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 3f8b9939-f382-4aca-b29f-2f06002574ad
@@ -62,8 +57,13 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         DialogText: Launch your succesful seeds back to earth. For Democracy!
-        AudioClip: {fileID: 0}
-    - rid: 693803540190330969
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312094
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 0e7cf66d-946a-4cac-9853-d7dc671550b6
@@ -71,8 +71,8 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-        Key: seedlingCaptian
-    - rid: 693803540190330970
+        Key: seedlingCaptain
+    - rid: 693803542726312095
       type: {class: StartNewTreeNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 9ecbdf0d-6a93-4a7b-93dc-6c859d3f29d9
@@ -81,3 +81,20 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         NodeTreeGraphSO: {fileID: 11400000, guid: cd647bf0de71d8f42aa3196eca095c95, type: 2}
+    - rid: 693803542726312096
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
+        Position: {x: 952, y: -3}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803542726312097
+      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: a5809df4-e8ac-4852-9c03-5c38632bd44a
+        Position: {x: 643, y: -42}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        EventKey: SeedSelection

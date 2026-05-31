@@ -12,11 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae2a7f2f014708499c628fd68af88ac, type: 3}
   m_Name: TutorialGarden
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
-  Nodes: []
+  Nodes:
+  - rid: 693803542726312124
   Edges: []
-  AudioClips: []
   defaultTextSpeed: 0.05
   IndicatorIcon: {fileID: 0}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 693803542726312124
+      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: e35d3695-c04b-4a50-a711-8c98a5bb0d49
+        Position: {x: 0, y: 0}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0

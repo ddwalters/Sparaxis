@@ -54,6 +54,8 @@ public class SequenceMinigamePanel : MonoBehaviour
         }
         else
         {
+            _totalScore = Mathf.Max(0, _totalScore - 10);
+            scoreText.text = _totalScore.ToString();
             NewSequence();
         }
     }

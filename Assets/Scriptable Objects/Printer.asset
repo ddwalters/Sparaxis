@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Printer
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803540190330977
-  - rid: 693803540190330978
-  - rid: 693803540190330979
-  - rid: 693803540190330980
-  - rid: 693803540190330981
+  - rid: 693803542726312098
+  - rid: 693803542726312099
+  - rid: 693803542726312100
+  - rid: 693803542726312101
+  - rid: 693803542726312102
   Edges:
   - OutputNodeGuid: dc6a79c3-0197-4c13-84f7-5dfdcd807b45
     InputNodeGuid: 1477369c-1245-484b-976b-4b717bb76fa1
@@ -31,13 +31,12 @@ MonoBehaviour:
   - OutputNodeGuid: e7c21a70-af8a-4e9e-aecd-4a7aa7595cee
     InputNodeGuid: fa6fd204-1387-4772-acf1-fc376ee996d0
     OutputPortIndex: 1
-  AudioClips: []
   defaultTextSpeed: 0.05
   IndicatorIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 693803540190330977
+    - rid: 693803542726312098
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 1477369c-1245-484b-976b-4b717bb76fa1
@@ -45,7 +44,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803540190330978
+    - rid: 693803542726312099
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: dc6a79c3-0197-4c13-84f7-5dfdcd807b45
@@ -54,8 +53,13 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         DialogText: Print the new genome sequence seedling...
-        AudioClip: {fileID: 0}
-    - rid: 693803540190330979
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312100
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 294e4e44-8549-4d9d-977c-36879e22f2ac
@@ -63,7 +67,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803540190330980
+    - rid: 693803542726312101
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: e7c21a70-af8a-4e9e-aecd-4a7aa7595cee
@@ -71,8 +75,8 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-        Key: seedlingCaptian
-    - rid: 693803540190330981
+        Key: seedlingCaptain
+    - rid: 693803542726312102
       type: {class: StartNewTreeNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: fa6fd204-1387-4772-acf1-fc376ee996d0

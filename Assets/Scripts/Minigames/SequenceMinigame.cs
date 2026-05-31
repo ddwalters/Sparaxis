@@ -33,6 +33,6 @@ public class SequenceMinigame : MonoBehaviour
 
     private void SetHasSeenComputer()
     {
-        ConditionContext.SetBool("hasSeenComputer", true);
+        SaveManager.Instance.SetMilestone("hasSeenComputer", true);
     }
 }

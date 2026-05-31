@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Garden
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803540190330961
-  - rid: 693803540190330962
-  - rid: 693803540190330963
-  - rid: 693803540190330964
-  - rid: 693803540190330965
+  - rid: 693803542726312103
+  - rid: 693803542726312104
+  - rid: 693803542726312105
+  - rid: 693803542726312106
+  - rid: 693803542726312107
   Edges:
   - OutputNodeGuid: 888b43d5-b277-45c7-882b-e0b54878fcb2
     InputNodeGuid: 0f239c47-f75e-4e06-91d7-83d052fa2ae0
@@ -31,13 +31,12 @@ MonoBehaviour:
   - OutputNodeGuid: 949e7e28-b88b-420e-a210-df0aa9ffb20f
     InputNodeGuid: 3ea5269f-113e-4520-93f7-1da782f1adde
     OutputPortIndex: 1
-  AudioClips: []
   defaultTextSpeed: 0.05
   IndicatorIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 693803540190330961
+    - rid: 693803542726312103
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 949e7e28-b88b-420e-a210-df0aa9ffb20f
@@ -45,8 +44,8 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-        Key: seedlingCaptian
-    - rid: 693803540190330962
+        Key: seedlingCaptain
+    - rid: 693803542726312104
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 3573618d-9bef-4061-8807-ae4f40d96c33
@@ -54,7 +53,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803540190330963
+    - rid: 693803542726312105
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 888b43d5-b277-45c7-882b-e0b54878fcb2
@@ -63,8 +62,13 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         DialogText: Plant your new genome seedling...
-        AudioClip: {fileID: 0}
-    - rid: 693803540190330964
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312106
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 0f239c47-f75e-4e06-91d7-83d052fa2ae0
@@ -72,7 +76,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803540190330965
+    - rid: 693803542726312107
       type: {class: StartNewTreeNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 3ea5269f-113e-4520-93f7-1da782f1adde

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using NodeTree;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
@@ -47,6 +48,7 @@ public class SaveManager : MonoBehaviour
         GameManager.Instance.PlayTime = 0f;
         player.transform.position = new Vector3(-0.54f, -0.04f, 0f); // looks cooler if player starts here...
         playerMovement.SetFacingDirection(new Vector2(1f, 1f));
+        ApplyMilestonesToContext();
     }
 
     public void Load(int slot)
@@ -62,6 +64,31 @@ public class SaveManager : MonoBehaviour
         playerMovement.SetFacingDirection(data.playerFacingDirection);
         GameManager.Instance.PlayTime = data.playTimeSeconds;
         Milestones = data.milestones;
+        ApplyMilestonesToContext();
+    }
+
+    public void SetMilestone(string key, bool value)
+    {
+        switch (key)
+        {
+            case "hasSeenComputer": Milestones.hasSeenComputer = value; break;
+            case "hasSeenPrinter": Milestones.hasSeenPrinter = value; break;
+            case "hasSeenGarden": Milestones.hasSeenGarden = value; break;
+            case "hasSeenShuttle": Milestones.hasSeenShuttle = value; break;
+            case "seedlingCaptain": Milestones.seedlingCaptain = value; break;
+            default: Debug.LogWarning($"[SaveManager] Unknown milestone key: '{key}'"); break;
+        }
+        ConditionContext.SetBool(key, value);
+    }
+
+    private void ApplyMilestonesToContext()
+    {
+        ConditionContext.Clear();
+        ConditionContext.SetBool("hasSeenComputer", Milestones.hasSeenComputer);
+        ConditionContext.SetBool("hasSeenPrinter", Milestones.hasSeenPrinter);
+        ConditionContext.SetBool("hasSeenGarden", Milestones.hasSeenGarden);
+        ConditionContext.SetBool("hasSeenShuttle", Milestones.hasSeenShuttle);
+        ConditionContext.SetBool("seedlingCaptain", Milestones.seedlingCaptain);
     }
 
     public SaveSlotMeta GetSlotMeta(int slot)

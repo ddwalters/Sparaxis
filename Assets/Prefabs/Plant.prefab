@@ -106,7 +106,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -837675147
   m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
 --- !u!114 &4665005343299792762
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeTrigger
   nodeTree: {fileID: 11400000, guid: f8c5a72802e44e846a879c6fbd8379bb, type: 2}
+  icon: {fileID: 0}
 --- !u!114 &8194261295595750658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,8 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodeTree.DialogInteractable
   indicator: {fileID: 3281172578707800176}
-  timerFill: {fileID: 0}
-  interactAction: {fileID: 0}
 --- !u!61 &7489048527634895582
 BoxCollider2D:
   m_ObjectHideFlags: 0
