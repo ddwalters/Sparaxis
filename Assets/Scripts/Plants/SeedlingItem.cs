@@ -9,10 +9,12 @@ public class SeedlingItem : MonoBehaviour
     private static readonly Color SpeedColor      = new Color(1f,   0.7f, 0.1f);
     private static readonly Color ResistanceColor = new Color(0.7f, 0.2f, 0.9f);
 
-    public Seedling Data { get; private set; }
+    public Seedling Data    { get; private set; }
+    public bool    IsGrown { get; private set; }
 
-    public void Initialize(Seedling data)
+    public void Initialize(Seedling data, bool isGrown = false)
     {
+        IsGrown = isGrown;
         Data = data;
 
         float total = data.effective + data.speed + data.resistance;

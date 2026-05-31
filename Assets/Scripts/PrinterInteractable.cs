@@ -12,6 +12,8 @@ public class PrinterInteractable : MonoBehaviour
     {
         NodeTreeEvents.Subscribe("PrintGenome", OnPrintGenome);
         NodeTreeEvents.Subscribe("PlantSeedling", OnPlantSeedling);
+        NodeTreeEvents.Subscribe("HarvestPlant", OnHarvestPlant);
+        NodeTreeEvents.Subscribe("ShuttleGenome", OnShuttleGenome);
         SaveManager.OnContextReady += UpdateInventoryContext;
     }
 
@@ -19,6 +21,8 @@ public class PrinterInteractable : MonoBehaviour
     {
         NodeTreeEvents.Unsubscribe("PrintGenome", OnPrintGenome);
         NodeTreeEvents.Unsubscribe("PlantSeedling", OnPlantSeedling);
+        NodeTreeEvents.Unsubscribe("HarvestPlant", OnHarvestPlant);
+        NodeTreeEvents.Unsubscribe("ShuttleGenome", OnShuttleGenome);
         SaveManager.OnContextReady -= UpdateInventoryContext;
     }
 
@@ -26,7 +30,8 @@ public class PrinterInteractable : MonoBehaviour
     {
         SeedlingItem current = itemHolder.GetComponentInChildren<SeedlingItem>();
         ConditionContext.SetBool("hasInventorySpace", current == null);
-        ConditionContext.SetBool("hasSeedling", current != null);
+        ConditionContext.SetBool("hasSeedling", current != null && !current.IsGrown);
+        ConditionContext.SetBool("hasGrownPlant", current != null && current.IsGrown);
 
         bool hasDuplicate = false;
         if (current != null)
@@ -54,6 +59,33 @@ public class PrinterInteractable : MonoBehaviour
             ConditionContext.SetBool("hasSeedling", false);
             ConditionContext.SetBool("hasInventorySpace", true);
         }
+    }
+
+    private void OnHarvestPlant()
+    {
+        Debug.Log($"[Printer] OnHarvestPlant called. LastHarvested={GardenManager.Instance.LastHarvestedSeedling?.name ?? "null"}, itemHolder={itemHolder}");
+        Seedling seedling = GardenManager.Instance.LastHarvestedSeedling;
+        if (seedling == null) return;
+
+        GameObject obj = Instantiate(seedlingPrefab, itemHolder);
+        obj.transform.localScale = Vector3.one * 2f;
+        obj.GetComponent<SeedlingItem>().Initialize(seedling, isGrown: true);
+        UpdateInventoryContext();
+    }
+
+    private void OnShuttleGenome()
+    {
+        SeedlingItem item = itemHolder.GetComponentInChildren<SeedlingItem>();
+        if (item == null || !item.IsGrown) return;
+
+        var milestones = SaveManager.Instance.Milestones;
+        milestones.earthPercent     += item.Data.effective;
+        milestones.earthEfficiency  += item.Data.speed;
+        milestones.earthGrowthSpeed += item.Data.resistance;
+
+        Destroy(item.gameObject);
+        ConditionContext.SetBool("hasGrownPlant", false);
+        ConditionContext.SetBool("hasInventorySpace", true);
     }
 
     private void OnPrintGenome()

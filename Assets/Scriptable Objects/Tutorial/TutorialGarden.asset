@@ -13,18 +13,25 @@ MonoBehaviour:
   m_Name: TutorialGarden
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803550753423809
-  - rid: 693803550753423810
-  - rid: 693803550753423811
-  - rid: 693803550753423812
-  - rid: 693803550753423813
-  - rid: 693803550753423814
-  - rid: 693803550753423815
-  - rid: 693803550753423816
-  - rid: 693803550753423817
-  - rid: 693803550753423818
-  - rid: 693803550753423819
-  - rid: 693803550753423820
+  - rid: 693803550753423875
+  - rid: 693803550753423876
+  - rid: 693803550753423877
+  - rid: 693803550753423878
+  - rid: 693803550753423879
+  - rid: 693803550753423880
+  - rid: 693803550753423881
+  - rid: 693803550753423882
+  - rid: 693803550753423883
+  - rid: 693803550753423884
+  - rid: 693803550753423885
+  - rid: 693803550753423886
+  - rid: 693803550753423887
+  - rid: 693803550753423888
+  - rid: 693803550753423889
+  - rid: 693803550753423890
+  - rid: 693803550753423891
+  - rid: 693803550753423892
+  - rid: 693803550753423893
   Edges:
   - OutputNodeGuid: a7271189-5ea5-4510-93d9-e639413832c6
     InputNodeGuid: a203301c-7679-4b54-8b48-e53747e670cd
@@ -42,11 +49,32 @@ MonoBehaviour:
     InputNodeGuid: 966a14a6-e123-4394-bcda-65cf01babd4c
     OutputPortIndex: 0
   - OutputNodeGuid: c6cc7778-d241-4af6-8e96-d1a8c0e60616
+    InputNodeGuid: d3e4f5a6-b7c8-9012-3def-456789012345
+    OutputPortIndex: 1
+  - OutputNodeGuid: d3e4f5a6-b7c8-9012-3def-456789012345
+    InputNodeGuid: e4f5a6b7-c8d9-0123-4ef5-567890123456
+    OutputPortIndex: 0
+  - OutputNodeGuid: e4f5a6b7-c8d9-0123-4ef5-567890123456
+    InputNodeGuid: a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890
+    OutputPortIndex: 0
+  - OutputNodeGuid: a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890
+    InputNodeGuid: f5a6b7c8-d9e0-1234-5f6a-678901234567
+    OutputPortIndex: 0
+  - OutputNodeGuid: d3e4f5a6-b7c8-9012-3def-456789012345
     InputNodeGuid: d7e8f9a0-b1c2-4d3e-8f4a-5b6c7d8e9f0a
     OutputPortIndex: 1
   - OutputNodeGuid: d7e8f9a0-b1c2-4d3e-8f4a-5b6c7d8e9f0a
-    InputNodeGuid: e8f9a0b1-c2d3-4e5f-9a0b-6c7d8e9f0a1b
+    InputNodeGuid: a0b1c2d3-e4f5-6789-0abc-def012345678
     OutputPortIndex: 0
+  - OutputNodeGuid: a0b1c2d3-e4f5-6789-0abc-def012345678
+    InputNodeGuid: b1c2d3e4-f5a6-7890-1bcd-ef0123456789
+    OutputPortIndex: 0
+  - OutputNodeGuid: b1c2d3e4-f5a6-7890-1bcd-ef0123456789
+    InputNodeGuid: c2d3e4f5-a6b7-8901-2cde-f01234567890
+    OutputPortIndex: 0
+  - OutputNodeGuid: a0b1c2d3-e4f5-6789-0abc-def012345678
+    InputNodeGuid: e8f9a0b1-c2d3-4e5f-9a0b-6c7d8e9f0a1b
+    OutputPortIndex: 1
   - OutputNodeGuid: d7e8f9a0-b1c2-4d3e-8f4a-5b6c7d8e9f0a
     InputNodeGuid: 7049a2bb-a7ff-4e8c-b4a8-b9312ba6b03f
     OutputPortIndex: 1
@@ -64,11 +92,154 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 693803550753423809
+    - rid: 693803550753423875
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: e4f5a6b7-c8d9-0123-4ef5-567890123456
+        Position: {x: 81, y: 100}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Something is fully grown! I should go collect it.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423876
+      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: e35d3695-c04b-4a50-a711-8c98a5bb0d49
+        Position: {x: -798, y: 12}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803550753423877
+      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: c6cc7778-d241-4af6-8e96-d1a8c0e60616
+        Position: {x: -707, y: -3}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        Key: hasSeedling
+    - rid: 693803550753423878
+      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: d3e4f5a6-b7c8-9012-3def-456789012345
+        Position: {x: -457, y: 132}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        Key: hasGrownSlot
+    - rid: 693803550753423879
+      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: d7e8f9a0-b1c2-4d3e-8f4a-5b6c7d8e9f0a
+        Position: {x: -453, y: 501}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        Key: hasGrowingPlant
+    - rid: 693803550753423880
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 7049a2bb-a7ff-4e8c-b4a8-b9312ba6b03f
+        Position: {x: -157, y: 809}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: I don't have any seeds to plant with. . .
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423881
+      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: a0b1c2d3-e4f5-6789-0abc-def012345678
+        Position: {x: -127, y: 410}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        Key: hasWatered
+    - rid: 693803550753423882
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: e8f9a0b1-c2d3-4e5f-9a0b-6c7d8e9f0a1b
+        Position: {x: 107, y: 518}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Something is growing. I should go water it.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423883
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: b1c2d3e4-f5a6-7890-1bcd-ef0123456789
+        Position: {x: 541, y: 316}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: I've done the best I can here, it just needs time.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423884
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: c2d3e4f5-a6b7-8901-2cde-f01234567890
+        Position: {x: 851, y: 347}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803550753423885
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: f9a0b1c2-d3e4-4f5a-0b1c-7d8e9f0a1b2c
+        Position: {x: 415, y: 575}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803550753423886
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 6a0c08ea-9f0b-431c-952a-3349fff9ad4e
+        Position: {x: 258, y: 857}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: I'll need to print more
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423887
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 19ca5588-be55-4feb-9857-31778f7f8fee
+        Position: {x: 637, y: 868}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803550753423888
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 966a14a6-e123-4394-bcda-65cf01babd4c
-        Position: {x: 139, y: -163}
+        Position: {x: 139, y: -193}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
@@ -79,28 +250,28 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803550753423810
+    - rid: 693803550753423889
       type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: a203301c-7679-4b54-8b48-e53747e670cd
-        Position: {x: 805, y: -155}
+        Position: {x: 805, y: -185}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
         EventKey: PlantSeedling
-    - rid: 693803550753423811
+    - rid: 693803550753423890
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 6e33ffc5-ee5d-4ff2-92ff-2bfa9b11622f
-        Position: {x: 1184, y: -114}
+        Position: {x: 1184, y: -144}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803550753423812
+    - rid: 693803550753423891
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: a7271189-5ea5-4510-93d9-e639413832c6
-        Position: {x: 450, y: -163}
+        Position: {x: 450, y: -193}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
@@ -112,90 +283,20 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803550753423813
-      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: d7e8f9a0-b1c2-4d3e-8f4a-5b6c7d8e9f0a
-        Position: {x: -238, y: 414}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        Key: hasGrowingPlant
-    - rid: 693803550753423814
-      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: e35d3695-c04b-4a50-a711-8c98a5bb0d49
-        Position: {x: -529, y: 34}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-    - rid: 693803550753423815
-      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: c6cc7778-d241-4af6-8e96-d1a8c0e60616
-        Position: {x: -438, y: 19}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        Key: hasSeedling
-    - rid: 693803550753423816
-      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: e8f9a0b1-c2d3-4e5f-9a0b-6c7d8e9f0a1b
-        Position: {x: 81, y: 239}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        DialogText: Something is growing. I should go water it.
-        TypingTickClip: {fileID: 0}
-        FontAsset: {fileID: 0}
-        FontSize: 36
-        FontColor: {r: 1, g: 1, b: 1, a: 1}
-        FontStyle: 0
-        TextSpeed: 0
-    - rid: 693803550753423817
-      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: 7049a2bb-a7ff-4e8c-b4a8-b9312ba6b03f
-        Position: {x: 96, y: 509}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        DialogText: I don't have any seeds to plant with. . .
-        TypingTickClip: {fileID: 0}
-        FontAsset: {fileID: 0}
-        FontSize: 36
-        FontColor: {r: 1, g: 1, b: 1, a: 1}
-        FontStyle: 0
-        TextSpeed: 0
-    - rid: 693803550753423818
-      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: 6a0c08ea-9f0b-431c-952a-3349fff9ad4e
-        Position: {x: 429, y: 509}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        DialogText: I'll need to print more
-        TypingTickClip: {fileID: 0}
-        FontAsset: {fileID: 0}
-        FontSize: 36
-        FontColor: {r: 1, g: 1, b: 1, a: 1}
-        FontStyle: 0
-        TextSpeed: 0
-    - rid: 693803550753423819
+    - rid: 693803550753423892
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
-        Guid: 19ca5588-be55-4feb-9857-31778f7f8fee
-        Position: {x: 758, y: 527}
+        Guid: f5a6b7c8-d9e0-1234-5f6a-678901234567
+        Position: {x: 757, y: 110}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803550753423820
-      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+    - rid: 693803550753423893
+      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
-        Guid: f9a0b1c2-d3e4-4f5a-0b1c-7d8e9f0a1b2c
-        Position: {x: 450, y: 293}
+        Guid: a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890
+        Position: {x: 450, y: 123}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
+        EventKey: CollectPlant

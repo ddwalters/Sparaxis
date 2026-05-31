@@ -16,8 +16,17 @@ public class GardenManager : MonoBehaviour
 
     private void Start() => UpdateGardenContext();
 
-    private void OnEnable()  => SaveManager.OnContextReady += UpdateGardenContext;
-    private void OnDisable() => SaveManager.OnContextReady -= UpdateGardenContext;
+    private void OnEnable()
+    {
+        SaveManager.OnContextReady += UpdateGardenContext;
+        NodeTreeEvents.Subscribe("CollectPlant", HarvestFirstGrownSlot);
+    }
+
+    private void OnDisable()
+    {
+        SaveManager.OnContextReady -= UpdateGardenContext;
+        NodeTreeEvents.Unsubscribe("CollectPlant", HarvestFirstGrownSlot);
+    }
 
     public bool TryPlant(Seedling seedling)
     {
@@ -35,13 +44,40 @@ public class GardenManager : MonoBehaviour
         return false;
     }
 
+    public Seedling LastHarvestedSeedling { get; private set; }
+
+    private void HarvestFirstGrownSlot()
+    {
+        foreach (GardenSlot slot in slots)
+        {
+            if (slot.IsOccupied && slot.IsGrown)
+            {
+                slot.Ship();
+                return;
+            }
+        }
+    }
+
+    public void OnPlantHarvested(Seedling seedling)
+    {
+        LastHarvestedSeedling = seedling;
+        UpdateGardenContext();
+        NodeTreeEvents.Fire("HarvestPlant");
+    }
+
     public void UpdateGardenContext()
     {
         bool hasGrowing = false;
+        bool hasWatered = false;
+        bool hasGrownSlot = false;
         foreach (GardenSlot slot in slots)
         {
-            if (slot.IsOccupied && !slot.IsGrown) { hasGrowing = true; break; }
+            if (slot.IsOccupied && !slot.IsGrown) hasGrowing = true;
+            if (slot.IsOccupied && slot.IsGrown)  hasGrownSlot = true;
+            if (slot.IsWatered)                   hasWatered = true;
         }
         ConditionContext.SetBool("hasGrowingPlant", hasGrowing);
+        ConditionContext.SetBool("hasGrownSlot",    hasGrownSlot);
+        ConditionContext.SetBool("hasWatered",      hasWatered);
     }
 }
