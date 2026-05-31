@@ -1,0 +1,38 @@
+using NodeTree;
+using UnityEngine;
+
+public class SequenceMinigame : MonoBehaviour
+{
+    [SerializeField] private SequenceMinigamePanel panel;
+
+    private void OnEnable()
+    {
+        NodeTreeEvents.Subscribe("SequenceGenome", OpenMinigame);
+        NodeTreeEvents.Subscribe("SetHasSeenComputer", SetHasSeenComputer);
+    }
+
+    private void OnDisable()
+    {
+        NodeTreeEvents.Unsubscribe("SequenceGenome", OpenMinigame);
+        NodeTreeEvents.Unsubscribe("SetHasSeenComputer", SetHasSeenComputer);
+    }
+
+    private void OpenMinigame()
+    {
+        GameManager.Instance.DisablePlayerInput();
+        panel.OnComplete = CloseMinigame;
+        panel.StartFresh();
+        UIManager.Instance.ShowSequenceMinigame();
+    }
+
+    public void CloseMinigame()
+    {
+        GameManager.Instance.EnablePlayerInput();
+        UIManager.Instance.ShowDialog();
+    }
+
+    private void SetHasSeenComputer()
+    {
+        ConditionContext.SetBool("hasSeenComputer", true);
+    }
+}

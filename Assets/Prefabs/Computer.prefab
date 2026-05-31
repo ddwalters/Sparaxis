@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6627861029961118552}
   - component: {fileID: 1594552277666856327}
   - component: {fileID: 8122724774053126754}
+  - component: {fileID: 6898152295496329055}
   - component: {fileID: 5540653742242329703}
   m_Layer: 6
   m_Name: Computer
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeTrigger
   nodeTree: {fileID: 11400000, guid: 78f2e96b2e1f7ff469c117f9f51751c4, type: 2}
+  icon: {fileID: 0}
 --- !u!114 &8122724774053126754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,8 +137,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodeTree.DialogInteractable
   indicator: {fileID: 6257144844263962257}
-  timerFill: {fileID: 0}
-  interactAction: {fileID: 0}
+--- !u!114 &6898152295496329055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948525407146205691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9133f5bd6f8e5eb429ab0f26cc3a04f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SequenceMinigame
+  panel: {fileID: 0}
 --- !u!61 &5540653742242329703
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Beginnings
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803540190330982
-  - rid: 693803540190330983
-  - rid: 693803540190330984
-  - rid: 693803540190330985
-  - rid: 693803540190330986
+  - rid: 693803542726312012
+  - rid: 693803542726312013
+  - rid: 693803542726312014
+  - rid: 693803542726312015
+  - rid: 693803542726312016
   Edges:
   - OutputNodeGuid: 4f8b3803-576f-4e6c-9299-0a0d8e3a5308
     InputNodeGuid: 82687852-0f84-4522-b7d3-2505743b5b56
@@ -31,13 +31,12 @@ MonoBehaviour:
   - OutputNodeGuid: b9230856-c582-498d-a863-f6a10a86b9e5
     InputNodeGuid: 9e322627-4e00-42db-9ce7-59117da03d83
     OutputPortIndex: 0
-  AudioClips: []
   defaultTextSpeed: 0.05
   IndicatorIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 693803540190330982
+    - rid: 693803542726312012
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 4f8b3803-576f-4e6c-9299-0a0d8e3a5308
@@ -45,7 +44,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803540190330983
+    - rid: 693803542726312013
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 82687852-0f84-4522-b7d3-2505743b5b56
@@ -54,8 +53,13 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         DialogText: Huh, So this is it...
-        AudioClip: {fileID: 0}
-    - rid: 693803540190330984
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312014
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 8b1b8775-fc23-454c-a874-10af4f6e052d
@@ -64,8 +68,13 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         DialogText: I really am humanity's last hope.
-        AudioClip: {fileID: 0}
-    - rid: 693803540190330985
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312015
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: b9230856-c582-498d-a863-f6a10a86b9e5
@@ -73,9 +82,15 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-        DialogText: . . . Lets see, what did the team manage to send up with me?
-        AudioClip: {fileID: 0}
-    - rid: 693803540190330986
+        DialogText: . . . I should look around for the tools my team managed to send
+          up with me.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312016
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 9e322627-4e00-42db-9ce7-59117da03d83

@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
   moveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  startFacingDirection: {x: 1, y: 1}
 --- !u!114 &4898820433705127989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7928629845994636789, guid: 97878802300b6c24fa4ff51dafe81624, type: 3}
+  m_Sprite: {fileID: -7002332345263391121, guid: 97878802300b6c24fa4ff51dafe81624, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

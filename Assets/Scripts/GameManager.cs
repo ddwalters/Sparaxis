@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform menuCameraTarget;
     [SerializeField] private InputActionReference pauseAction;
     [SerializeField] private InputActionAsset inputActions;
+    [SerializeField] private NodeTreeGraphSO openingDialog;
 
     private bool isPaused;
     private bool isPlaying;
@@ -69,10 +70,17 @@ public class GameManager : MonoBehaviour
         inputActions.FindActionMap("Player").Enable();
         virtualCamera.Follow = player.transform;
         ShowCursor(false);
-        UIManager.Instance.ShowHUD();
 
-        // TODO: @DW I want to add my storyline somehow, but in what way should I trigger things based on events/ accomplishemnts
-        //TriggerDialog()
+        if (openingDialog != null)
+        {
+            UIManager.Instance.ShowDialog();
+            DialogRunner.Instance.StartDialog(openingDialog);
+            StartCoroutine(WaitForOpeningDialog());
+        }
+        else
+        {
+            UIManager.Instance.ShowHUD();
+        }
     }
 
     public void LoadGame(int slot)
@@ -126,6 +134,15 @@ public class GameManager : MonoBehaviour
     {
         OnDialogRequested?.Invoke(trigger);
     }
+
+    private System.Collections.IEnumerator WaitForOpeningDialog()
+    {
+        yield return new WaitUntil(() => !DialogRunner.Instance.IsDialogActive);
+        UIManager.Instance.ShowHUD();
+    }
+
+    public void DisablePlayerInput() => inputActions.FindActionMap("Player").Disable();
+    public void EnablePlayerInput() => inputActions.FindActionMap("Player").Enable();
 
     public event Action<NodeTreeTrigger> OnDialogRequested;
 }

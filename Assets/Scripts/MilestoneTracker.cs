@@ -9,7 +9,7 @@ public class MilestoneTracker
     public bool hasSeenGarden;
     public bool hasSeenShuttle;
 
-    public bool seedlingCaptian; // Tutorial complete, the world is slowly healing :)
+    public bool seedlingCaptain; // Tutorial complete, the world is slowly healing :)
     #endregion
 
     #region Gameplay

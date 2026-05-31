@@ -30,7 +30,15 @@ namespace NodeTree
 
         public void Interact()
         {
+            UIManager.Instance.ShowDialog();
             trigger.Interact();
+            StartCoroutine(WaitForDialogEnd());
+        }
+
+        private System.Collections.IEnumerator WaitForDialogEnd()
+        {
+            yield return new WaitUntil(() => !DialogRunner.Instance.IsDialogActive);
+            UIManager.Instance.ShowHUD();
         }
     }
 }
