@@ -31,6 +31,7 @@ namespace NodeTree
 
         public void Interact()
         {
+            SaveManager.Instance.ApplyMilestonesToContext();
             UIManager.Instance.ShowDialog();
             trigger.Interact();
             StartCoroutine(WaitForDialogEnd());

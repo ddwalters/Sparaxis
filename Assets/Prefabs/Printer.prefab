@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6464356679439100577}
   - component: {fileID: 3266280574059140576}
   - component: {fileID: 7800933381796032117}
+  - component: {fileID: 617036793180995346}
   - component: {fileID: 1526689854463445123}
   m_Layer: 6
   m_Name: Printer
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeTrigger
   nodeTree: {fileID: 11400000, guid: 0f53d0409213fbc48bd55a5606fb177d, type: 2}
+  icon: {fileID: 0}
 --- !u!114 &7800933381796032117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,8 +137,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodeTree.DialogInteractable
   indicator: {fileID: 2512527152331378041}
-  timerFill: {fileID: 0}
-  interactAction: {fileID: 0}
+--- !u!114 &617036793180995346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453956209902534644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c933714e668894596136b525003aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrinterInteractable
+  inventoryContainer: {fileID: 0}
+  seedlingPrefab: {fileID: 6038784310313021368, guid: 0fcd81894475e4b4cb13b238f4f4b2fa, type: 3}
 --- !u!61 &1526689854463445123
 BoxCollider2D:
   m_ObjectHideFlags: 0

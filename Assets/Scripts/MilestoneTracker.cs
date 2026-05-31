@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class MilestoneTracker
@@ -12,9 +13,14 @@ public class MilestoneTracker
     public bool seedlingCaptain; // Tutorial complete, the world is slowly healing :)
     #endregion
 
+    #region Sequences
+    public bool hasSequence;
+    public List<GenomeRecord> genomeCollection = new List<GenomeRecord>();
+    #endregion
+
     #region Gameplay
     public float earthPercent; // Earth milestones determine game completeion, I.e. 100%
-    public float earthEfficiency; 
+    public float earthEfficiency;
     public float earthGrowthSpeed;
     #endregion
 }
