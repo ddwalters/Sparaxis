@@ -36,6 +36,7 @@ public class SaveManager : MonoBehaviour
             slot = slot,
             timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
             playTimeSeconds = data.playTimeSeconds,
+            earthPercent = Milestones.earthPercent,
             isEmpty = false
         }));
     }

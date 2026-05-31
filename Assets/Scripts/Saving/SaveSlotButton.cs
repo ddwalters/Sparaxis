@@ -18,7 +18,7 @@ public class SaveSlotButton : MonoBehaviour
             return;
         }
 
-        mainText.text = $"Slot {meta.slot + 1}";
+        mainText.text = $"Slot {meta.slot + 1} - {meta.earthPercent:0.#}%";
         timestampText.text = meta.timestamp;
         playtimeText.text = TimeSpan.FromSeconds(meta.playTimeSeconds).ToString(@"hh\:mm\:ss");
     }
