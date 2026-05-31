@@ -44,7 +44,6 @@ public class SaveManager : MonoBehaviour
 
     public void NewGame()
     {
-        Debug.LogWarning($"[SaveManager] NewGame() called\n{System.Environment.StackTrace}");
         Milestones = new MilestoneTracker();
         GameManager.Instance.PlayTime = 0f;
         player.transform.position = new Vector3(-0.54f, -0.04f, 0f); // looks cooler if player starts here...
@@ -55,7 +54,6 @@ public class SaveManager : MonoBehaviour
 
     public void Load(int slot)
     {
-        Debug.LogWarning($"[SaveManager] Load({slot}) called\n{System.Environment.StackTrace}");
         if (!File.Exists(SavePath(slot)))
         {
             Debug.LogWarning($"No save file found for slot {slot}!");
@@ -73,8 +71,6 @@ public class SaveManager : MonoBehaviour
 
     public void SetMilestone(string key, bool value)
     {
-        if (key == "hasSeenComputer")
-            Debug.Log($"[SaveManager] SetMilestone hasSeenComputer={value}\n{System.Environment.StackTrace}");
         switch (key)
         {
             case "hasSeenComputer": Milestones.hasSeenComputer = value; break;
@@ -90,7 +86,6 @@ public class SaveManager : MonoBehaviour
 
     public void ApplyMilestonesToContext()
     {
-        Debug.Log($"[SaveManager] ApplyMilestonesToContext hasSeenComputer={Milestones.hasSeenComputer}\n{System.Environment.StackTrace}");
         ConditionContext.SetBool("hasSeenComputer", Milestones.hasSeenComputer);
         ConditionContext.SetBool("hasSeenPrinter",  Milestones.hasSeenPrinter);
         ConditionContext.SetBool("hasSeenGarden",   Milestones.hasSeenGarden);
