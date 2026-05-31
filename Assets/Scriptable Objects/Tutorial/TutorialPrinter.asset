@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: TutorialPrinter
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803545954615450
-  - rid: 693803545954615451
-  - rid: 693803545954615452
-  - rid: 693803545954615453
-  - rid: 693803545954615454
-  - rid: 693803545954615455
-  - rid: 693803545954615456
-  - rid: 693803545954615457
-  - rid: 693803545954615458
-  - rid: 693803545954615459
-  - rid: 693803545954615460
-  - rid: 693803545954615461
-  - rid: 693803545954615462
-  - rid: 693803545954615463
+  - rid: 693803550753423727
+  - rid: 693803550753423728
+  - rid: 693803550753423729
+  - rid: 693803550753423730
+  - rid: 693803550753423731
+  - rid: 693803550753423732
+  - rid: 693803550753423733
+  - rid: 693803550753423734
+  - rid: 693803550753423735
+  - rid: 693803550753423736
+  - rid: 693803550753423737
+  - rid: 693803550753423738
+  - rid: 693803550753423739
+  - rid: 693803550753423740
   Edges:
   - OutputNodeGuid: 207e1029-e970-44bc-8b3d-7bdac1f858d1
     InputNodeGuid: 8d602eb6-ac8b-4a51-8724-9041f733657e
@@ -75,7 +75,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 693803545954615450
+    - rid: 693803550753423727
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 207e1029-e970-44bc-8b3d-7bdac1f858d1
@@ -90,7 +90,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803545954615451
+    - rid: 693803550753423728
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 8d602eb6-ac8b-4a51-8724-9041f733657e
@@ -105,7 +105,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803545954615452
+    - rid: 693803550753423729
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 5041bbf2-2926-4feb-91ce-6282eee732ac
@@ -113,7 +113,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803545954615453
+    - rid: 693803550753423730
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 9a9ea658-a463-4847-ac78-d967dc4a1cd2
@@ -121,7 +121,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803545954615454
+    - rid: 693803550753423731
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 9dee7313-f28d-4e45-a377-05174ef97823
@@ -136,7 +136,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803545954615455
+    - rid: 693803550753423732
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: e69bbcde-be8e-456a-af03-e7dcfe24ff1b
@@ -144,7 +144,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803545954615456
+    - rid: 693803550753423733
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: ae23b9b8-8f48-4616-80aa-592f9797df08
@@ -153,7 +153,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         Key: hasInventorySpace
-    - rid: 693803545954615457
+    - rid: 693803550753423734
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 416b1980-c3ee-4005-a0f8-23caad69677b
@@ -162,7 +162,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         Key: hasDuplicateSeedling
-    - rid: 693803545954615458
+    - rid: 693803550753423735
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 7421df50-8650-44c9-a141-e5b922f937cc
@@ -179,7 +179,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803545954615459
+    - rid: 693803550753423736
       type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 22197ce2-514d-4276-82f8-554002762361
@@ -188,7 +188,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         EventKey: PrintGenome
-    - rid: 693803545954615460
+    - rid: 693803550753423737
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: b93a3ca2-2aa4-44c6-9067-deb44a925f12
@@ -196,7 +196,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803545954615461
+    - rid: 693803550753423738
       type: {class: DialogOptionsNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 715b9ae6-b739-4c0b-a4b3-8ef9fb6de1ee
@@ -215,7 +215,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803545954615462
+    - rid: 693803550753423739
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: d562d7de-2048-41a1-b147-f29202c44c73
@@ -223,7 +223,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803545954615463
+    - rid: 693803550753423740
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: b3aebb2b-0f07-47d9-81e7-5aa524f7b5c5

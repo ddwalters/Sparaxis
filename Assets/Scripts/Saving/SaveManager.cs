@@ -3,9 +3,12 @@ using System.IO;
 using NodeTree;
 using UnityEngine;
 
+
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance { get; private set; }
+
+    public static event Action OnContextReady;
 
     public MilestoneTracker Milestones { get; private set; } = new MilestoneTracker();
 
@@ -50,6 +53,7 @@ public class SaveManager : MonoBehaviour
         playerMovement.SetFacingDirection(new Vector2(1f, 1f));
         ConditionContext.Clear();
         ApplyMilestonesToContext();
+        OnContextReady?.Invoke();
     }
 
     public void Load(int slot)
@@ -67,6 +71,7 @@ public class SaveManager : MonoBehaviour
         Milestones = data.milestones;
         ConditionContext.Clear();
         ApplyMilestonesToContext();
+        OnContextReady?.Invoke();
     }
 
     public void SetMilestone(string key, bool value)
@@ -74,14 +79,15 @@ public class SaveManager : MonoBehaviour
         switch (key)
         {
             case "hasSeenComputer": Milestones.hasSeenComputer = value; break;
-            case "hasSeenPrinter":  Milestones.hasSeenPrinter  = value; break;
-            case "hasSeenGarden":   Milestones.hasSeenGarden   = value; break;
-            case "hasSeenShuttle":  Milestones.hasSeenShuttle  = value; break;
+            case "hasSeenPrinter": Milestones.hasSeenPrinter = value; break;
+            case "hasSeenGarden": Milestones.hasSeenGarden = value; break;
+            case "hasSeenShuttle": Milestones.hasSeenShuttle = value; break;
             case "seedlingCaptain": Milestones.seedlingCaptain = value; break;
-            case "hasSequence":     Milestones.hasSequence     = value; break;
+            case "hasSequence": Milestones.hasSequence = value; break;
             default: Debug.LogWarning($"[SaveManager] Unknown milestone key: '{key}'"); break;
         }
         ConditionContext.SetBool(key, value);
+        OnContextReady?.Invoke();
     }
 
     public void ApplyMilestonesToContext()

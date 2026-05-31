@@ -13,12 +13,21 @@ public class PrinterInteractable : MonoBehaviour
 
     private void Start() => UpdateInventoryContext();
 
-    private void OnEnable() => NodeTreeEvents.Subscribe("PrintGenome", OnPrintGenome);
-    private void OnDisable() => NodeTreeEvents.Unsubscribe("PrintGenome", OnPrintGenome);
+    private void OnEnable()
+    {
+        NodeTreeEvents.Subscribe("PrintGenome", OnPrintGenome);
+        SaveManager.OnContextReady += UpdateInventoryContext;
+    }
+
+    private void OnDisable()
+    {
+        NodeTreeEvents.Unsubscribe("PrintGenome", OnPrintGenome);
+        SaveManager.OnContextReady -= UpdateInventoryContext;
+    }
 
     public void UpdateInventoryContext()
     {
-        ConditionContext.SetBool("hasInventorySpace", true);
+        ConditionContext.SetBool("hasInventorySpace", FindAvailableSlot() != null);
 
         var collection = SaveManager.Instance.Milestones.genomeCollection;
         bool hasDuplicate = false;
