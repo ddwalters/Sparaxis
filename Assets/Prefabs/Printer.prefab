@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c933714e668894596136b525003aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrinterInteractable
-  inventoryContainer: {fileID: 0}
+  itemHolder: {fileID: 0}
   seedlingPrefab: {fileID: 6038784310313021368, guid: 0fcd81894475e4b4cb13b238f4f4b2fa, type: 3}
 --- !u!61 &1526689854463445123
 BoxCollider2D:

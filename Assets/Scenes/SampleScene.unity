@@ -5318,6 +5318,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293870418}
   m_CullTransparentMesh: 1
+--- !u!1 &1305208944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1305208946}
+  - component: {fileID: 1305208945}
+  m_Layer: 0
+  m_Name: GardenManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1305208945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305208944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a835bf02d4a590641be0fa52aa9c21bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GardenManager
+  slots:
+  - {fileID: 1420453023}
+  - {fileID: 2115082149}
+  - {fileID: 1802644890}
+--- !u!4 &1305208946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305208944}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1083.673, y: 458.0358, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1338358435
 GameObject:
   m_ObjectHideFlags: 0
@@ -8919,6 +8967,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418913547}
   m_CullTransparentMesh: 1
+--- !u!114 &1420453023 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2742713217150732250, guid: 342fda871c3f7f5438d947b0fc9886f2, type: 3}
+  m_PrefabInstance: {fileID: 5777464609950662403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319246b7eb56751489bf1f7450d7fb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GardenSlot
 --- !u!1 &1438449938
 GameObject:
   m_ObjectHideFlags: 0
@@ -29769,6 +29828,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1802644890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2742713217150732250, guid: 342fda871c3f7f5438d947b0fc9886f2, type: 3}
+  m_PrefabInstance: {fileID: 853808466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319246b7eb56751489bf1f7450d7fb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GardenSlot
 --- !u!224 &1847529203 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2753605346532185711, guid: b2fb215a71b85f347a09003fbd4a9ed0, type: 3}
@@ -30220,6 +30290,17 @@ Transform:
   - {fileID: 1537208113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115082149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2742713217150732250, guid: 342fda871c3f7f5438d947b0fc9886f2, type: 3}
+  m_PrefabInstance: {fileID: 1882711143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319246b7eb56751489bf1f7450d7fb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GardenSlot
 --- !u!1 &2131638505
 GameObject:
   m_ObjectHideFlags: 0
@@ -30436,14 +30517,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 617036793180995346, guid: 65347c3928d2fa44786ca915cf1b369b, type: 3}
       propertyPath: itemHolder
-      value: 
-      objectReference: {fileID: 175651558}
-    - target: {fileID: 617036793180995346, guid: 65347c3928d2fa44786ca915cf1b369b, type: 3}
-      propertyPath: seedlingPrefab
-      value: 
-      objectReference: {fileID: 855384008123669008, guid: f686c747ee82ff149ae81c1a1010e817, type: 3}
-    - target: {fileID: 617036793180995346, guid: 65347c3928d2fa44786ca915cf1b369b, type: 3}
-      propertyPath: inventoryContainer
       value: 
       objectReference: {fileID: 175651558}
     - target: {fileID: 6453956209902534644, guid: 65347c3928d2fa44786ca915cf1b369b, type: 3}
@@ -30989,4 +31062,5 @@ SceneRoots:
   - {fileID: 2684280830789815094}
   - {fileID: 1500184797605436164}
   - {fileID: 4674433737734555907}
+  - {fileID: 1305208946}
   - {fileID: 707563374}

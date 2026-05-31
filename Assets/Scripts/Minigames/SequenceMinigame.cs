@@ -40,6 +40,7 @@ public class SequenceMinigame : MonoBehaviour
 
     public void CloseMinigame()
     {
+        Debug.Log($"[Minigame] CloseMinigame called. LastCompletedPlant={panel.LastCompletedPlant?.name ?? "null"}, Score={panel.LastCompletedScore}");
         if (panel.LastCompletedPlant != null)
         {
             SaveManager.Instance.Milestones.genomeCollection.Add(new GenomeRecord
