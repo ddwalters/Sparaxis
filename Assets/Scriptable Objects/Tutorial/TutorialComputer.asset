@@ -13,19 +13,20 @@ MonoBehaviour:
   m_Name: TutorialComputer
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803542726312054
-  - rid: 693803542726312055
-  - rid: 693803542726312056
-  - rid: 693803542726312057
-  - rid: 693803542726312058
-  - rid: 693803542726312059
-  - rid: 693803542726312060
-  - rid: 693803542726312061
-  - rid: 693803542726312062
-  - rid: 693803542726312063
-  - rid: 693803542726312064
-  - rid: 693803542726312065
-  - rid: 693803542726312066
+  - rid: 693803542726312067
+  - rid: 693803542726312068
+  - rid: 693803542726312069
+  - rid: 693803542726312070
+  - rid: 693803542726312071
+  - rid: 693803542726312072
+  - rid: 693803542726312073
+  - rid: 693803542726312074
+  - rid: 693803542726312075
+  - rid: 693803542726312076
+  - rid: 693803542726312077
+  - rid: 693803542726312078
+  - rid: 693803542726312079
+  - rid: 693803542726312080
   Edges:
   - OutputNodeGuid: acaeedc7-59f5-45c5-9e5b-6b5497cb4222
     InputNodeGuid: b457e118-ed01-4efd-8cc2-50b64783b46f
@@ -45,9 +46,6 @@ MonoBehaviour:
   - OutputNodeGuid: 0f0ffd58-a70f-4634-a8a2-dccfc92478d7
     InputNodeGuid: 53cd9bbb-052c-4240-88e1-10562ccd400e
     OutputPortIndex: 0
-  - OutputNodeGuid: 53cd9bbb-052c-4240-88e1-10562ccd400e
-    InputNodeGuid: 831d8395-c852-46a0-8b02-a028173e8d76
-    OutputPortIndex: 0
   - OutputNodeGuid: 831d8395-c852-46a0-8b02-a028173e8d76
     InputNodeGuid: 88ae138b-f76d-4141-ba84-508a3e76313b
     OutputPortIndex: 0
@@ -63,12 +61,18 @@ MonoBehaviour:
   - OutputNodeGuid: ea948ac4-1f02-4afb-8c06-e025f8563970
     InputNodeGuid: 0f0ffd58-a70f-4634-a8a2-dccfc92478d7
     OutputPortIndex: 0
+  - OutputNodeGuid: 53cd9bbb-052c-4240-88e1-10562ccd400e
+    InputNodeGuid: 59da1246-37fb-46ef-9caf-b1516fe4db89
+    OutputPortIndex: 0
+  - OutputNodeGuid: 59da1246-37fb-46ef-9caf-b1516fe4db89
+    InputNodeGuid: 831d8395-c852-46a0-8b02-a028173e8d76
+    OutputPortIndex: 0
   defaultTextSpeed: 0.05
   IndicatorIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 693803542726312054
+    - rid: 693803542726312067
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: acaeedc7-59f5-45c5-9e5b-6b5497cb4222
@@ -76,7 +80,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803542726312055
+    - rid: 693803542726312068
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 75b81086-ee42-4f05-a5d5-6bd736b8350f
@@ -91,7 +95,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803542726312056
+    - rid: 693803542726312069
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: ecdc9af9-6fbc-4368-87c5-0d93a75fc24c
@@ -99,7 +103,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803542726312057
+    - rid: 693803542726312070
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: e16fafcb-1355-4ae0-b04e-7d33907e5f59
@@ -114,7 +118,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803542726312058
+    - rid: 693803542726312071
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: b457e118-ed01-4efd-8cc2-50b64783b46f
@@ -123,7 +127,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         Key: hasSeenComputer
-    - rid: 693803542726312059
+    - rid: 693803542726312072
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: ee2decdc-6c6a-4e62-9fb5-d9b354b5ca83
@@ -139,7 +143,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803542726312060
+    - rid: 693803542726312073
       type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 0f0ffd58-a70f-4634-a8a2-dccfc92478d7
@@ -148,56 +152,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         EventKey: SequenceGenome
-    - rid: 693803542726312061
-      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: 831d8395-c852-46a0-8b02-a028173e8d76
-        Position: {x: 1835, y: 213}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        DialogText: <i> It would be a good idea to print this genome as a seed, it
-          would be bad if I sent hundreds back just for nothing to happen. </i>
-        TypingTickClip: {fileID: 0}
-        FontAsset: {fileID: 0}
-        FontSize: 36
-        FontColor: {r: 1, g: 1, b: 1, a: 1}
-        FontStyle: 0
-        TextSpeed: 0
-    - rid: 693803542726312062
-      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: 53cd9bbb-052c-4240-88e1-10562ccd400e
-        Position: {x: 1554, y: 213}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        DialogText: Finally! A succesfully sequenced plant genome with higher resistance
-          to the Sparaxis infection.
-        TypingTickClip: {fileID: 0}
-        FontAsset: {fileID: 0}
-        FontSize: 36
-        FontColor: {r: 1, g: 1, b: 1, a: 1}
-        FontStyle: 0
-        TextSpeed: 0
-    - rid: 693803542726312063
-      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: 88ae138b-f76d-4141-ba84-508a3e76313b
-        Position: {x: 2150, y: 213}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        EventKey: SetHasSeenComputer
-    - rid: 693803542726312064
-      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: eb583f0a-4336-4985-9dee-cf851658843a
-        Position: {x: 2475, y: 213}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-    - rid: 693803542726312065
+    - rid: 693803542726312074
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 0584a09f-87df-4dfc-b841-57f6be1788e1
@@ -214,7 +169,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803542726312066
+    - rid: 693803542726312075
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: ea948ac4-1f02-4afb-8c06-e025f8563970
@@ -225,6 +180,70 @@ MonoBehaviour:
         DialogText: '[ Use the arrow keys (or wasd) and match the order of keys shown.
           There is a time limit. Each sequence completed gives points which effect
           the outcome of the mutation. ]'
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312076
+      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 88ae138b-f76d-4141-ba84-508a3e76313b
+        Position: {x: 2411, y: 233}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        EventKey: SetHasSeenComputer
+    - rid: 693803542726312077
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: eb583f0a-4336-4985-9dee-cf851658843a
+        Position: {x: 2707, y: 233}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803542726312078
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 59da1246-37fb-46ef-9caf-b1516fe4db89
+        Position: {x: 1840, y: 224}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Before long, we may yet again see a green earth. . .
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312079
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 831d8395-c852-46a0-8b02-a028173e8d76
+        Position: {x: 2147, y: 224}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: <i> It would be a good idea to print this genome as a seed, it
+          would be bad if I sent hundreds back just for nothing to happen. </i>
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803542726312080
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 53cd9bbb-052c-4240-88e1-10562ccd400e
+        Position: {x: 1554, y: 213}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Perfect! A succesfully sequenced plant genome with higher resistance
+          to the Sparaxis infection.
         TypingTickClip: {fileID: 0}
         FontAsset: {fileID: 0}
         FontSize: 36
