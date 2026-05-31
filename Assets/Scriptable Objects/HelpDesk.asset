@@ -1,0 +1,368 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2a7f2f014708499c628fd68af88ac, type: 3}
+  m_Name: HelpDesk
+  m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
+  Nodes:
+  - rid: 693803550753423493
+  - rid: 693803550753423494
+  - rid: 693803550753423495
+  - rid: 693803550753423496
+  - rid: 693803550753423497
+  - rid: 693803550753423498
+  - rid: 693803550753423499
+  - rid: 693803550753423500
+  - rid: 693803550753423501
+  - rid: 693803550753423502
+  - rid: 693803550753423503
+  - rid: 693803550753423504
+  - rid: 693803550753423505
+  - rid: 693803550753423506
+  - rid: 693803550753423507
+  - rid: 693803550753423508
+  - rid: 693803550753423509
+  Edges:
+  - OutputNodeGuid: 96225873-99a3-41b9-8c3f-e22c02af87cc
+    InputNodeGuid: 279a6aec-e3ca-412c-aec6-a86510abc732
+    OutputPortIndex: 0
+  - OutputNodeGuid: 279a6aec-e3ca-412c-aec6-a86510abc732
+    InputNodeGuid: ac906ae5-b927-4e83-899b-357b6a3a3f02
+    OutputPortIndex: 0
+  - OutputNodeGuid: ac906ae5-b927-4e83-899b-357b6a3a3f02
+    InputNodeGuid: 961c1d51-3cb0-4cbe-8313-ee0a1d000022
+    OutputPortIndex: 0
+  - OutputNodeGuid: 961c1d51-3cb0-4cbe-8313-ee0a1d000022
+    InputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    OutputPortIndex: 0
+  - OutputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    InputNodeGuid: d285ca70-11fc-4ad8-a444-6f770c8a3e79
+    OutputPortIndex: 5
+  - OutputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    InputNodeGuid: 1a7bcfbb-e154-49d1-abac-ccae6fb46e1c
+    OutputPortIndex: 0
+  - OutputNodeGuid: 1a7bcfbb-e154-49d1-abac-ccae6fb46e1c
+    InputNodeGuid: 0e725733-429e-428e-b1b8-9aae366dd4bf
+    OutputPortIndex: 0
+  - OutputNodeGuid: 0e725733-429e-428e-b1b8-9aae366dd4bf
+    InputNodeGuid: 8da055c8-4f1b-437e-8b82-b2e9fc19370e
+    OutputPortIndex: 0
+  - OutputNodeGuid: 8da055c8-4f1b-437e-8b82-b2e9fc19370e
+    InputNodeGuid: b42fff2d-00bf-4f3e-a74a-8b5a19b504e2
+    OutputPortIndex: 0
+  - OutputNodeGuid: b42fff2d-00bf-4f3e-a74a-8b5a19b504e2
+    InputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    OutputPortIndex: 0
+  - OutputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    InputNodeGuid: 1d4486ec-8b1e-4514-a4bc-5f9e95f77bcf
+    OutputPortIndex: 1
+  - OutputNodeGuid: 1d4486ec-8b1e-4514-a4bc-5f9e95f77bcf
+    InputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    OutputPortIndex: 0
+  - OutputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    InputNodeGuid: 4000a8aa-76ba-4314-a161-95f2d6a9ffad
+    OutputPortIndex: 2
+  - OutputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    InputNodeGuid: d1edd06e-356f-46a5-91cc-ed3c9a1cfc78
+    OutputPortIndex: 3
+  - OutputNodeGuid: 4000a8aa-76ba-4314-a161-95f2d6a9ffad
+    InputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    OutputPortIndex: 0
+  - OutputNodeGuid: d1edd06e-356f-46a5-91cc-ed3c9a1cfc78
+    InputNodeGuid: a47d359e-5fd5-4851-a964-b74183c2cd6c
+    OutputPortIndex: 0
+  - OutputNodeGuid: a47d359e-5fd5-4851-a964-b74183c2cd6c
+    InputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    OutputPortIndex: 0
+  - OutputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    InputNodeGuid: 84a69975-4ebf-4461-aaad-e1a72995c22b
+    OutputPortIndex: 4
+  - OutputNodeGuid: 84a69975-4ebf-4461-aaad-e1a72995c22b
+    InputNodeGuid: b51f5e81-fb62-44c3-bd40-d686e2051a01
+    OutputPortIndex: 0
+  - OutputNodeGuid: b51f5e81-fb62-44c3-bd40-d686e2051a01
+    InputNodeGuid: 319316d3-ed5b-4b79-8129-377c8d5b864a
+    OutputPortIndex: 0
+  - OutputNodeGuid: 319316d3-ed5b-4b79-8129-377c8d5b864a
+    InputNodeGuid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+    OutputPortIndex: 0
+  defaultTextSpeed: 0.05
+  IndicatorIcon: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 693803550753423493
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 1a7bcfbb-e154-49d1-abac-ccae6fb46e1c
+        Position: {x: 586, y: -394}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: The computer was meant to be my take on mutation, the theme.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423494
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 0e725733-429e-428e-b1b8-9aae366dd4bf
+        Position: {x: 586, y: -667}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: The player gets a <i>Sequence</i>, something they must solve
+          to get points, the points of course lead to greater mutation!
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423495
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 8da055c8-4f1b-437e-8b82-b2e9fc19370e
+        Position: {x: 586, y: -935}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: The printer, which was the death of me to get working (It's not
+          currently working). Is where these points showcase the mutation either
+          through <b>Sparaxis</b> resistance, growth speed, or effectiveness.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423496
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: b42fff2d-00bf-4f3e-a74a-8b5a19b504e2
+        Position: {x: 245, y: -935}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Eventually, the planet would become more green, and the Sparaxis
+          plant infection would be lifted. More on Sparaxis in my world lore
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423497
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 1d4486ec-8b1e-4514-a4bc-5f9e95f77bcf
+        Position: {x: 982, y: -164}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: The Bialogical printer would print a plant seed based on your
+          new genome, you could then grow and test it before sending it to earth
+          to repopulate.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423498
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 4000a8aa-76ba-4314-a161-95f2d6a9ffad
+        Position: {x: 1355, y: -68}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Pods of soil, varying in type based on earth, which you could
+          grow your new seeds. I always pictures this like Stardew, but I never got
+          around to it.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423499
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: d1edd06e-356f-46a5-91cc-ed3c9a1cfc78
+        Position: {x: 1355, y: 195}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: The Shuttlle isn't for people, your on a one way trip to save
+          earth of course!
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423500
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: d285ca70-11fc-4ad8-a444-6f770c8a3e79
+        Position: {x: 1404, y: 789}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803550753423501
+      type: {class: DialogOptionsNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: a0cdd2aa-f0a6-420c-b749-d47385ea76ef
+        Position: {x: 682, y: 303}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: I'll let you choose, I reccoment the computer game! (Console
+          found like this one) as it's pretty much the only thing working
+        ResponseOptions:
+        - Computer Info
+        - Biological Printer
+        - Gardens
+        - Plant Shuttle Home
+        - World Lore
+        - Exit
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423502
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: a47d359e-5fd5-4851-a964-b74183c2cd6c
+        Position: {x: 1724, y: 195}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Instead, it's to ship back ready products of seeds and plants
+          to grow again. These are specalized pods that drop fast enough to dig into
+          the gound, perfectly planting your new mutant plant.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423503
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 84a69975-4ebf-4461-aaad-e1a72995c22b
+        Position: {x: 1371, y: 470}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: To keep it fairly short, in the far future a virus wipes out
+          almost all living plants. This was known as the <b>Sparaxis</b> (which
+          I named after a real <color=#FF58AC>flower</color>)
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423504
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: b51f5e81-fb62-44c3-bd40-d686e2051a01
+        Position: {x: 1724, y: 502}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: 'With the last resources of earths civilization, they sent a
+          lone researcher to develop resistant plant mutants away from the disease. '
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423505
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 319316d3-ed5b-4b79-8129-377c8d5b864a
+        Position: {x: 2099, y: 502}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Game cycle would only have been about 30 minutes, each root gave
+          extra percent and increased the world recovery rate. (like plague inc.
+          lol)
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423506
+      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 96225873-99a3-41b9-8c3f-e22c02af87cc
+        Position: {x: -592, y: -164}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 693803550753423507
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: ac906ae5-b927-4e83-899b-357b6a3a3f02
+        Position: {x: -122, y: -164}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: First off, I did not finish it in time for the 36 hours. . .
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423508
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 279a6aec-e3ca-412c-aec6-a86510abc732
+        Position: {x: -459, y: -164}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: Welcome to the <color=#EF32FF>Help Desk!</color> where I will
+          explain some parts of the game.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 693803550753423509
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 961c1d51-3cb0-4cbe-8313-ee0a1d000022
+        Position: {x: 230, y: -164}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: However I learned a ton! I want to let you know what currently
+          works and what doesnt, and my intentions that is at all interstings.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
