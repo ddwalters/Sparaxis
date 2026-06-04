@@ -140,11 +140,11 @@ public class PrinterInteractable : MonoBehaviour
     private static Seedling GenerateSeedling(GenomeRecord record)
     {
         PlantData plant = record.Plant;
-        float budget = Mathf.Clamp(record.score * 0.001f, 0.05f, 0.5f);
+        float budget = Mathf.Clamp(record.score * 0.003f, 0.05f, 3f);
 
-        float w1 = Mathf.Max(0.05f, Random.value);
-        float w2 = Mathf.Max(0.05f, Random.value);
-        float w3 = Mathf.Max(0.05f, Random.value);
+        float w1 = Mathf.Max(0.15f, Random.value);
+        float w2 = Mathf.Max(0.15f, Random.value);
+        float w3 = Mathf.Max(0.15f, Random.value);
         float total = w1 + w2 + w3;
 
         Seedling seedling = new Seedling

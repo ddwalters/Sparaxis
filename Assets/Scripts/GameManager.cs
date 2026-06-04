@@ -40,9 +40,9 @@ public class GameManager : MonoBehaviour
     public void AddWorldRecovery(float effective, float speed, float resistance)
     {
         var m = SaveManager.Instance.Milestones;
-        m.earthPercent     += effective;
+        m.earthPercent += effective;
         m.earthGrowthSpeed += speed;
-        m.earthResistance  += resistance;
+        m.earthResistance += resistance;
         OnWorldRecoveryChanged?.Invoke(m.earthPercent);
     }
 
@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour
         if (!isPlaying) return;
         PlayTime += Time.deltaTime;
 
-
         var m = SaveManager.Instance.Milestones;
         float totalStats = m.earthGrowthSpeed + m.earthEfficiency + m.earthResistance;
         if (totalStats <= 0f) return;
@@ -81,17 +80,17 @@ public class GameManager : MonoBehaviour
         pauseAction.action.Enable();
         pauseAction.action.performed += OnPause;
         dropAction.action.Enable();
-        dropAction.action.performed  += OnDrop;
-        OnWorldRecoveryChanged       += OnRecoveryChanged;
-        SaveManager.OnContextReady   += RefreshStatsDisplay;
+        dropAction.action.performed += OnDrop;
+        OnWorldRecoveryChanged += OnRecoveryChanged;
+        SaveManager.OnContextReady += RefreshStatsDisplay;
     }
 
     private void OnDisable()
     {
         pauseAction.action.performed -= OnPause;
         dropAction.action.performed  -= OnDrop;
-        OnWorldRecoveryChanged       -= OnRecoveryChanged;
-        SaveManager.OnContextReady   -= RefreshStatsDisplay;
+        OnWorldRecoveryChanged -= OnRecoveryChanged;
+        SaveManager.OnContextReady -= RefreshStatsDisplay;
     }
 
     private void Start()
@@ -189,30 +188,43 @@ public class GameManager : MonoBehaviour
         var m = SaveManager.Instance.Milestones;
         m.earthPercent = Mathf.Min(100f, m.earthPercent);
         RefreshStatsDisplay();
+
         if (m.earthPercent >= 100f)
             TriggerCompletion();
     }
 
     private void TriggerCompletion()
     {
-        if (completionDialog == null) return;
-        isPlaying = false;
+        if (completionDialog == null)
+            return;
+
         UIManager.Instance.ShowDialog();
         DialogRunner.Instance.StartDialog(completionDialog);
     }
 
     private void RefreshStatsDisplay()
     {
-        if (statsContainer == null) return;
+        if (statsContainer == null)
+            return;
+
         var m = SaveManager.Instance.Milestones;
         bool unlocked = m.seedlingCaptain;
         statsContainer.SetActive(unlocked);
-        if (!unlocked) return;
 
-        if (recoverySlider  != null) recoverySlider.value  = Mathf.Clamp01(m.earthPercent / 100f);
-        if (recoveryText    != null) recoveryText.text     = $"{m.earthPercent:0.#}%";
-        if (growthSpeedText != null) growthSpeedText.text = m.earthGrowthSpeed.ToString("0.###");
-        if (resistanceText  != null) resistanceText.text  = m.earthResistance.ToString("0.###");
+        if (!unlocked)
+            return;
+
+        if (recoverySlider != null)
+            recoverySlider.value  = Mathf.Clamp01(m.earthPercent / 100f);
+
+        if (recoveryText != null)
+            recoveryText.text = $"{m.earthPercent:0.#}%";
+
+        if (growthSpeedText != null)
+            growthSpeedText.text = m.earthGrowthSpeed.ToString("0.###");
+
+        if (resistanceText  != null)
+            resistanceText.text  = m.earthResistance.ToString("0.###");
 
         if (efficiencyText != null)
         {
@@ -229,7 +241,7 @@ public class GameManager : MonoBehaviour
         OnDialogRequested?.Invoke(trigger);
     }
 
-    private System.Collections.IEnumerator WaitForOpeningDialog()
+    private IEnumerator WaitForOpeningDialog()
     {
         yield return new WaitUntil(() => !DialogRunner.Instance.IsDialogActive);
         UIManager.Instance.ShowHUD();
