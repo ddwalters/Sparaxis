@@ -1,11 +1,12 @@
+using System.Collections;
 using NodeTree;
 using UnityEngine;
 
+[RequireComponent(typeof(NodeTreeTrigger))]
 public class GardenSlot : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Sprite plantIndicatorSprite;
 
-    private const float GrowDuration    = 0f;
+    private const float GrowDuration    = 10f;
     private const float WaterReduction  = 45f;
     private const float IndicatorStartScale = 0.08f;
     private const float IndicatorFullScale  = 0.15f;
@@ -16,6 +17,12 @@ public class GardenSlot : MonoBehaviour, IInteractable
     private bool _grown;
     private bool _occupied;
     private SpriteRenderer _indicator;
+    private NodeTreeTrigger _trigger;
+
+    private void Awake()
+    {
+        _trigger = GetComponent<NodeTreeTrigger>();
+    }
 
     public bool IsOccupied => _occupied;
     public bool IsGrown    => _grown;
@@ -28,16 +35,15 @@ public class GardenSlot : MonoBehaviour, IInteractable
         _watered = false;
         _grown = false;
         _occupied = true;
-        ConditionContext.SetBool("hasWatered", false);
 
         GameObject obj = new GameObject("PlantIndicator");
         obj.transform.SetParent(transform);
         obj.transform.localPosition = Vector3.zero;
         _indicator = obj.AddComponent<SpriteRenderer>();
-        _indicator.sprite = plantIndicatorSprite;
-        _indicator.color = Color.yellow;
+        _indicator.color = Color.white;
         _indicator.sortingOrder = 11;
         _indicator.transform.localScale = Vector3.one * IndicatorStartScale;
+        SetIndicatorSprite(0f);
     }
 
     private void Update()
@@ -49,8 +55,8 @@ public class GardenSlot : MonoBehaviour, IInteractable
         if (GrowDuration > 0f && _indicator != null)
         {
             float progress = 1f - (_timeRemaining / GrowDuration);
-            float scale = Mathf.Lerp(IndicatorStartScale, IndicatorFullScale, progress);
-            _indicator.transform.localScale = Vector3.one * scale;
+            _indicator.transform.localScale = Vector3.one * Mathf.Lerp(IndicatorStartScale, IndicatorFullScale, progress);
+            SetIndicatorSprite(progress);
         }
 
         if (_timeRemaining <= 0f)
@@ -62,20 +68,50 @@ public class GardenSlot : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (!_occupied) return;
-        if (!_grown) { Water(); return; }
-        Ship();
+        GardenManager.Instance.CurrentSlot = this;
+        SetSlotContext();
+        SaveManager.Instance.ApplyMilestonesToContext();
+        UIManager.Instance.ShowDialog();
+        _trigger.Interact();
+        StartCoroutine(WaitForDialogEnd());
     }
 
-    private void Water()
+    private IEnumerator WaitForDialogEnd()
+    {
+        yield return new WaitUntil(() => !DialogRunner.Instance.IsDialogActive);
+        GardenManager.Instance.UpdateGardenContext();
+        UIManager.Instance.ShowHUD();
+    }
+
+    private void SetSlotContext()
+    {
+        ConditionContext.SetBool("hasGrowingPlant", _occupied && !_grown);
+        ConditionContext.SetBool("hasGrownSlot",    _occupied && _grown);
+        ConditionContext.SetBool("hasWatered",      _watered);
+    }
+
+    public void Water()
     {
         if (_watered) return;
         _watered = true;
         _timeRemaining = Mathf.Max(0f, _timeRemaining - WaterReduction);
 
         AudioManager.Instance.PlayWaterSound();
-        NodeTreeEvents.Fire("WaterPlant");
         ConditionContext.SetBool("hasWatered", true);
+    }
+
+    private void SetIndicatorSprite(float progress)
+    {
+        if (_indicator == null || _seedling?.sourcePlant == null) return;
+        PlantData plant = _seedling.sourcePlant;
+        int stage = Mathf.Min(3, Mathf.FloorToInt(progress * 4));
+        _indicator.sprite = stage switch
+        {
+            0 => plant.seedlingSprite,
+            1 => plant.younglingSprite,
+            2 => plant.maturingSprite,
+            _ => plant.grownSprite
+        };
     }
 
     private void OnFullyGrown()
@@ -83,8 +119,8 @@ public class GardenSlot : MonoBehaviour, IInteractable
         _grown = true;
         if (_indicator != null)
         {
-            _indicator.color = Color.green;
             _indicator.transform.localScale = Vector3.one * IndicatorFullScale;
+            SetIndicatorSprite(1f);
         }
         GardenManager.Instance.UpdateGardenContext();
     }
@@ -92,7 +128,7 @@ public class GardenSlot : MonoBehaviour, IInteractable
     public void Ship()
     {
         Debug.Log($"[GardenSlot] Ship called. seedling={_seedling?.name ?? "null"}");
-        GardenManager.Instance.OnPlantHarvested(_seedling);
+        Seedling harvested = _seedling;
         _occupied = false;
         _grown = false;
         _watered = false;
@@ -104,6 +140,6 @@ public class GardenSlot : MonoBehaviour, IInteractable
             _indicator = null;
         }
 
-        ConditionContext.SetBool("hasWatered", false);
+        GardenManager.Instance.OnPlantHarvested(harvested);
     }
 }

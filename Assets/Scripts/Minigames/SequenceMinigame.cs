@@ -47,8 +47,8 @@ public class SequenceMinigame : MonoBehaviour
         {
             SaveManager.Instance.Milestones.genomeCollection.Add(new GenomeRecord
             {
-                plant = panel.LastCompletedPlant,
-                score = panel.LastCompletedScore
+                plantName = panel.LastCompletedPlant.name,
+                score     = panel.LastCompletedScore
             });
             SaveManager.Instance.SetMilestone("hasSequence", true);
         }

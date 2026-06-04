@@ -11,6 +11,9 @@ public static class PlantDatabase
     public static PlantData[] GetUnlocked() =>
         All.Where(p => p.unlockAt <= SaveManager.Instance.Milestones.earthPercent).ToArray();
 
+    public static PlantData GetByName(string plantName) =>
+        Array.Find(All, p => p.name == plantName);
+
     public static PlantData GetLatestUnlocked() =>
         GetUnlocked() is { Length: > 0 } unlocked ? unlocked[^1] : All[0];
 
@@ -36,13 +39,12 @@ public static class PlantDatabase
 
     private static PlantData[] Load()
     {
-        TextAsset asset = Resources.Load<TextAsset>("plants");
-        if (asset == null)
+        PlantDatabaseSO db = Resources.Load<PlantDatabaseSO>("PlantDatabase");
+        if (db == null)
         {
-            Debug.LogError("[PlantDatabase] plants.json not found in Resources/");
+            Debug.LogError("[PlantDatabase] PlantDatabase SO not found in Resources/");
             return Array.Empty<PlantData>();
         }
-
-        return JsonUtility.FromJson<PlantList>(asset.text).plants;
+        return db.plants;
     }
 }

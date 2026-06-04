@@ -8,6 +8,8 @@ public class GardenManager : MonoBehaviour
 
     [SerializeField] private List<GardenSlot> slots;
 
+    public GardenSlot CurrentSlot { get; set; }
+
     private void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
@@ -19,13 +21,15 @@ public class GardenManager : MonoBehaviour
     private void OnEnable()
     {
         SaveManager.OnContextReady += UpdateGardenContext;
-        NodeTreeEvents.Subscribe("CollectPlant", HarvestFirstGrownSlot);
+        NodeTreeEvents.Subscribe("WaterPlant",   OnWaterPlant);
+        NodeTreeEvents.Subscribe("CollectPlant", OnCollectPlant);
     }
 
     private void OnDisable()
     {
         SaveManager.OnContextReady -= UpdateGardenContext;
-        NodeTreeEvents.Unsubscribe("CollectPlant", HarvestFirstGrownSlot);
+        NodeTreeEvents.Unsubscribe("WaterPlant",   OnWaterPlant);
+        NodeTreeEvents.Unsubscribe("CollectPlant", OnCollectPlant);
     }
 
     public bool TryPlant(Seedling seedling)
@@ -46,17 +50,8 @@ public class GardenManager : MonoBehaviour
 
     public Seedling LastHarvestedSeedling { get; private set; }
 
-    private void HarvestFirstGrownSlot()
-    {
-        foreach (GardenSlot slot in slots)
-        {
-            if (slot.IsOccupied && slot.IsGrown)
-            {
-                slot.Ship();
-                return;
-            }
-        }
-    }
+    private void OnWaterPlant()   => CurrentSlot?.Water();
+    private void OnCollectPlant() => CurrentSlot?.Ship();
 
     public void OnPlantHarvested(Seedling seedling)
     {
@@ -72,12 +67,18 @@ public class GardenManager : MonoBehaviour
         bool hasGrownSlot = false;
         foreach (GardenSlot slot in slots)
         {
-            if (slot.IsOccupied && !slot.IsGrown) hasGrowing = true;
-            if (slot.IsOccupied && slot.IsGrown)  hasGrownSlot = true;
-            if (slot.IsWatered)                   hasWatered = true;
+            if (slot.IsOccupied && !slot.IsGrown)
+                hasGrowing = true;
+
+            if (slot.IsOccupied && slot.IsGrown)
+                hasGrownSlot = true;
+
+            if (slot.IsWatered)
+                hasWatered = true;
         }
+
         ConditionContext.SetBool("hasGrowingPlant", hasGrowing);
-        ConditionContext.SetBool("hasGrownSlot",    hasGrownSlot);
-        ConditionContext.SetBool("hasWatered",      hasWatered);
+        ConditionContext.SetBool("hasGrownSlot", hasGrownSlot);
+        ConditionContext.SetBool("hasWatered", hasWatered);
     }
 }

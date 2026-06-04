@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfca871fa8fbd41498ebe4f9930cef36, type: 3}
+  m_Name: NewPlant
+  m_EditorClassIdentifier: Assembly-CSharp::PlantData
+  seedlingSprite: {fileID: -6314469017701990326, guid: f73e50dd3163b7941bbc3b3b320b9038, type: 3}
+  younglingSprite: {fileID: 1574200738629489294, guid: f73e50dd3163b7941bbc3b3b320b9038, type: 3}
+  maturingSprite: {fileID: -8682907647490993238, guid: f73e50dd3163b7941bbc3b3b320b9038, type: 3}
+  grownSprite: {fileID: -1448595650, guid: f73e50dd3163b7941bbc3b3b320b9038, type: 3}
+  unlockAt: 0
+  bonusStat: 0
+  bonusAmount: 0

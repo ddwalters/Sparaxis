@@ -1,16 +1,13 @@
-using System;
+using UnityEngine;
 
-[Serializable]
-public class PlantData
+[CreateAssetMenu(fileName = "NewPlant", menuName = "Sparaxis/Plant")]
+public class PlantData : ScriptableObject
 {
-    public string name;
-    public float unlockAt; // based on earthPercent threshold (0-100)
-    public string bonusStat;  // "Effective", "Speed", "Resistance", or "" for none
+    public Sprite seedlingSprite;
+    public Sprite younglingSprite;
+    public Sprite maturingSprite;
+    public Sprite grownSprite;
+    public float unlockAt;
+    public string bonusStat;
     public float bonusAmount;
-}
-
-[Serializable]
-class PlantList
-{
-    public PlantData[] plants;
 }

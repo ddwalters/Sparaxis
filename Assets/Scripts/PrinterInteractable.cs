@@ -38,7 +38,7 @@ public class PrinterInteractable : MonoBehaviour
         {
             var collection = SaveManager.Instance.Milestones.genomeCollection;
             if (collection.Count > 0)
-                hasDuplicate = current.Data.sourcePlant.name == collection[collection.Count - 1].plant.name;
+                hasDuplicate = current.Data.sourcePlant.name == collection[collection.Count - 1].plantName;
         }
 
         ConditionContext.SetBool("hasDuplicateSeedling", hasDuplicate);
@@ -104,6 +104,7 @@ public class PrinterInteractable : MonoBehaviour
 
     private static Seedling GenerateSeedling(GenomeRecord record)
     {
+        PlantData plant = record.Plant;
         float budget = Mathf.Clamp(record.score * 0.001f, 0.05f, 0.5f);
 
         float w1 = Random.value, w2 = Random.value, w3 = Random.value;
@@ -111,20 +112,20 @@ public class PrinterInteractable : MonoBehaviour
 
         Seedling seedling = new Seedling
         {
-            name        = record.plant.name,
+            name        = plant.name,
             effective   = (w1 / total) * budget,
             speed       = (w2 / total) * budget,
             resistance  = (w3 / total) * budget,
-            sourcePlant = record.plant
+            sourcePlant = plant
         };
 
-        if (!string.IsNullOrEmpty(record.plant.bonusStat))
+        if (!string.IsNullOrEmpty(plant.bonusStat))
         {
-            switch (record.plant.bonusStat)
+            switch (plant.bonusStat)
             {
-                case "Effective":  seedling.effective  += record.plant.bonusAmount; break;
-                case "Speed":      seedling.speed      += record.plant.bonusAmount; break;
-                case "Resistance": seedling.resistance += record.plant.bonusAmount; break;
+                case "Effective":  seedling.effective  += plant.bonusAmount; break;
+                case "Speed":      seedling.speed      += plant.bonusAmount; break;
+                case "Resistance": seedling.resistance += plant.bonusAmount; break;
             }
         }
 
