@@ -66,14 +66,13 @@ public class GardenSlot : MonoBehaviour, IInteractable
             OnFullyGrown();
     }
 
-    public void OnFocused() { }
-    public void OnUnfocused() { }
+    public void OnFocused()   => GardenManager.Instance.CurrentSlot = this;
+    public void OnUnfocused() => GardenManager.Instance.CurrentSlot = null;
 
     public void Interact()
     {
         if (DialogRunner.Instance.IsDialogActive) return;
 
-        GardenManager.Instance.CurrentSlot = this;
         SetSlotContext();
         PrinterInteractable.Instance.UpdateInventoryContext();
         SaveManager.Instance.ApplyMilestonesToContext();

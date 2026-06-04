@@ -15,6 +15,8 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private GameObject player;
     private PlayerMovement playerMovement;
 
+    public Vector3 PlayerPosition => player.transform.position;
+
     private const int SlotCount = 5;
 
     private void Awake()

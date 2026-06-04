@@ -50,8 +50,56 @@ public class GardenManager : MonoBehaviour
 
     public Seedling LastHarvestedSeedling { get; private set; }
 
-    private void OnWaterPlant()   => CurrentSlot?.Water();
-    private void OnCollectPlant() => CurrentSlot?.Ship();
+    private void OnWaterPlant()
+    {
+        GardenSlot slot = CurrentSlot ?? GetNearestGrowingSlot(SaveManager.Instance.PlayerPosition);
+        slot?.Water();
+    }
+
+    private void OnCollectPlant()
+    {
+        GardenSlot slot = CurrentSlot ?? GetNearestGrownSlot(SaveManager.Instance.PlayerPosition);
+        slot?.Ship();
+    }
+
+    public GardenSlot GetNearestGrowingSlot(Vector3 position)
+    {
+        GardenSlot nearest = null;
+        float minDist = float.MaxValue;
+        foreach (GardenSlot slot in slots)
+        {
+            if (!slot.IsOccupied || slot.IsGrown) continue;
+            float dist = Vector3.Distance(slot.transform.position, position);
+            if (dist < minDist) { minDist = dist; nearest = slot; }
+        }
+        return nearest;
+    }
+
+    public GardenSlot GetNearestGrownSlot(Vector3 position)
+    {
+        GardenSlot nearest = null;
+        float minDist = float.MaxValue;
+        foreach (GardenSlot slot in slots)
+        {
+            if (!slot.IsOccupied || !slot.IsGrown) continue;
+            float dist = Vector3.Distance(slot.transform.position, position);
+            if (dist < minDist) { minDist = dist; nearest = slot; }
+        }
+        return nearest;
+    }
+
+    public GardenSlot GetNearestEmptySlot(Vector3 position)
+    {
+        GardenSlot nearest = null;
+        float minDist = float.MaxValue;
+        foreach (GardenSlot slot in slots)
+        {
+            if (slot.IsOccupied) continue;
+            float dist = Vector3.Distance(slot.transform.position, position);
+            if (dist < minDist) { minDist = dist; nearest = slot; }
+        }
+        return nearest;
+    }
 
     public void OnPlantHarvested(Seedling seedling)
     {

@@ -17,6 +17,9 @@ public class SeedlingItem : MonoBehaviour
         IsGrown = isGrown;
         Data = data;
 
+        if (isGrown && data.sourcePlant?.grownSprite != null)
+            seedlingImage.sprite = data.sourcePlant.grownSprite;
+
         float total = data.effective + data.speed + data.resistance;
         if (total <= 0) return;
 

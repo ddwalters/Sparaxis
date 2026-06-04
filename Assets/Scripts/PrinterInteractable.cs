@@ -61,23 +61,29 @@ public class PrinterInteractable : MonoBehaviour
             return;
         }
 
-        if (GardenManager.Instance.TryPlant(item.Data))
+        GardenSlot slot = GardenManager.Instance.GetNearestEmptySlot(SaveManager.Instance.PlayerPosition);
+        if (slot == null)
         {
-            item.transform.SetParent(null);
-            Destroy(item.gameObject);
-            ConditionContext.SetBool("playerHasSeedling", false);
-            ConditionContext.SetBool("hasInventorySpace", true);
+            Debug.LogWarning("[Printer] No empty garden slot near player.");
+            return;
         }
+
+        slot.Plant(item.Data);
+        GardenManager.Instance.UpdateGardenContext();
+
+        item.transform.SetParent(null);
+        Destroy(item.gameObject);
+        ConditionContext.SetBool("playerHasSeedling", false);
+        ConditionContext.SetBool("hasInventorySpace", true);
     }
 
     private void OnHarvestPlant()
     {
-        Debug.Log($"[Printer] OnHarvestPlant called. LastHarvested={GardenManager.Instance.LastHarvestedSeedling?.name ?? "null"}, itemHolder={itemHolder}");
         Seedling seedling = GardenManager.Instance.LastHarvestedSeedling;
         if (seedling == null) return;
 
         GameObject obj = Instantiate(seedlingPrefab, itemHolder);
-        obj.transform.localScale = Vector3.one * 2f;
+        obj.transform.localScale = Vector3.one;
         obj.GetComponent<SeedlingItem>().Initialize(seedling, isGrown: true);
         UpdateInventoryContext();
     }
@@ -101,7 +107,6 @@ public class PrinterInteractable : MonoBehaviour
     private void OnPrintGenome()
     {
         var collection = SaveManager.Instance.Milestones.genomeCollection;
-        Debug.Log($"[Printer] itemHolder={itemHolder}, genomes={collection.Count}, playerHasSeedling={itemHolder?.GetComponentInChildren<SeedlingItem>() != null}");
 
         if (collection.Count == 0) { Debug.LogWarning("[Printer] No genomes in collection."); return; }
         if (itemHolder.GetComponentInChildren<SeedlingItem>() != null) return;
@@ -122,10 +127,10 @@ public class PrinterInteractable : MonoBehaviour
 
         Seedling seedling = new Seedling
         {
-            name        = plant.name,
-            effective   = (w1 / total) * budget,
-            speed       = (w2 / total) * budget,
-            resistance  = (w3 / total) * budget,
+            name = plant.name,
+            effective = (w1 / total) * budget,
+            speed = (w2 / total) * budget,
+            resistance = (w3 / total) * budget,
             sourcePlant = plant
         };
 
@@ -133,9 +138,15 @@ public class PrinterInteractable : MonoBehaviour
         {
             switch (plant.bonusStat)
             {
-                case "Effective":  seedling.effective  += plant.bonusAmount; break;
-                case "Speed":      seedling.speed      += plant.bonusAmount; break;
-                case "Resistance": seedling.resistance += plant.bonusAmount; break;
+                case "Effective":
+                    seedling.effective += plant.bonusAmount;
+                    break;
+                case "Speed":
+                    seedling.speed += plant.bonusAmount;
+                    break;
+                case "Resistance":
+                    seedling.resistance += plant.bonusAmount;
+                    break;
             }
         }
 
