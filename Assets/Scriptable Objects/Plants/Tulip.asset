@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfca871fa8fbd41498ebe4f9930cef36, type: 3}
-  m_Name: NewPlant
+  m_Name: Tulip
   m_EditorClassIdentifier: Assembly-CSharp::PlantData
   seedlingSprite: {fileID: -6314469017701990326, guid: f73e50dd3163b7941bbc3b3b320b9038, type: 3}
   younglingSprite: {fileID: 1574200738629489294, guid: f73e50dd3163b7941bbc3b3b320b9038, type: 3}

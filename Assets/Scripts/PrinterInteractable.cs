@@ -3,8 +3,16 @@ using UnityEngine;
 
 public class PrinterInteractable : MonoBehaviour
 {
+    public static PrinterInteractable Instance { get; private set; }
+
     [SerializeField] private Transform itemHolder;
     [SerializeField] private GameObject seedlingPrefab;
+
+    private void Awake()
+    {
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
+    }
 
     private void Start() => UpdateInventoryContext();
 
@@ -30,7 +38,7 @@ public class PrinterInteractable : MonoBehaviour
     {
         SeedlingItem current = itemHolder.GetComponentInChildren<SeedlingItem>();
         ConditionContext.SetBool("hasInventorySpace", current == null);
-        ConditionContext.SetBool("hasSeedling", current != null && !current.IsGrown);
+        ConditionContext.SetBool("playerHasSeedling", current != null && !current.IsGrown);
         ConditionContext.SetBool("hasGrownPlant", current != null && current.IsGrown);
 
         bool hasDuplicate = false;
@@ -55,8 +63,9 @@ public class PrinterInteractable : MonoBehaviour
 
         if (GardenManager.Instance.TryPlant(item.Data))
         {
+            item.transform.SetParent(null);
             Destroy(item.gameObject);
-            ConditionContext.SetBool("hasSeedling", false);
+            ConditionContext.SetBool("playerHasSeedling", false);
             ConditionContext.SetBool("hasInventorySpace", true);
         }
     }
@@ -83,6 +92,7 @@ public class PrinterInteractable : MonoBehaviour
         milestones.earthEfficiency  += item.Data.speed;
         milestones.earthGrowthSpeed += item.Data.resistance;
 
+        item.transform.SetParent(null);
         Destroy(item.gameObject);
         ConditionContext.SetBool("hasGrownPlant", false);
         ConditionContext.SetBool("hasInventorySpace", true);
@@ -91,7 +101,7 @@ public class PrinterInteractable : MonoBehaviour
     private void OnPrintGenome()
     {
         var collection = SaveManager.Instance.Milestones.genomeCollection;
-        Debug.Log($"[Printer] itemHolder={itemHolder}, genomes={collection.Count}, hasSeedling={itemHolder?.GetComponentInChildren<SeedlingItem>() != null}");
+        Debug.Log($"[Printer] itemHolder={itemHolder}, genomes={collection.Count}, playerHasSeedling={itemHolder?.GetComponentInChildren<SeedlingItem>() != null}");
 
         if (collection.Count == 0) { Debug.LogWarning("[Printer] No genomes in collection."); return; }
         if (itemHolder.GetComponentInChildren<SeedlingItem>() != null) return;
