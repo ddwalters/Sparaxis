@@ -803,6 +803,13 @@ MonoBehaviour:
   pauseAction: {fileID: 7727032971491509709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   openingDialog: {fileID: 11400000, guid: 5f4679ad249a8ef499fbd315c50c877b, type: 2}
+  completionDialog: {fileID: 11400000, guid: b835a21f7699d2348a3edff34845b769, type: 2}
+  statsContainer: {fileID: 728387817}
+  recoverySlider: {fileID: 1188547903}
+  recoveryText: {fileID: 2034987091}
+  growthSpeedText: {fileID: 1196959935}
+  efficiencyText: {fileID: 409002364}
+  resistanceText: {fileID: 409002364}
 --- !u!4 &226969890
 Transform:
   m_ObjectHideFlags: 0
@@ -31384,7 +31391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 47.59996}
+  m_AnchoredPosition: {x: 32, y: 50.59996}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2034987091
@@ -31572,7 +31579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -41.19988, y: 51}
+  m_AnchoredPosition: {x: -41.19988, y: 54}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042962730

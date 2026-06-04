@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae2a7f2f014708499c628fd68af88ac, type: 3}
+  m_Name: Ending
+  m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
+  Nodes:
+  - rid: 2217948139912430085
+  - rid: 2217948139912430086
+  - rid: 2217948139912430087
+  - rid: 2217948139912430088
+  - rid: 2217948139912430089
+  Edges:
+  - OutputNodeGuid: 24bc91b2-0acb-4e1d-a112-d7b279e75908
+    InputNodeGuid: 6e2bf0a9-ccaf-49e6-aacc-c5e8076fa776
+    OutputPortIndex: 0
+  - OutputNodeGuid: 6e2bf0a9-ccaf-49e6-aacc-c5e8076fa776
+    InputNodeGuid: 898817a0-043f-4a19-bfcc-50f1b7540c8a
+    OutputPortIndex: 0
+  - OutputNodeGuid: 898817a0-043f-4a19-bfcc-50f1b7540c8a
+    InputNodeGuid: 87f74227-1c4d-49c5-a7cd-3c5707046c28
+    OutputPortIndex: 0
+  - OutputNodeGuid: 87f74227-1c4d-49c5-a7cd-3c5707046c28
+    InputNodeGuid: a6b30519-e526-4af6-b0ae-f82b197619cf
+    OutputPortIndex: 0
+  defaultTextSpeed: 0.05
+  IndicatorIcon: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 2217948139912430085
+      type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 24bc91b2-0acb-4e1d-a112-d7b279e75908
+        Position: {x: 0, y: 0}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 2217948139912430086
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 6e2bf0a9-ccaf-49e6-aacc-c5e8076fa776
+        Position: {x: 221, y: -77}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: You did it, Earth is saved!
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 2217948139912430087
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 898817a0-043f-4a19-bfcc-50f1b7540c8a
+        Position: {x: 569, y: -77}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: I fear that I haven't developed this part of the game. . .
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 2217948139912430088
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 87f74227-1c4d-49c5-a7cd-3c5707046c28
+        Position: {x: 956, y: -77}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: I'll let you keep playing, earth could be greener!
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 2217948139912430089
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: a6b30519-e526-4af6-b0ae-f82b197619cf
+        Position: {x: 1317, y: -77}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0

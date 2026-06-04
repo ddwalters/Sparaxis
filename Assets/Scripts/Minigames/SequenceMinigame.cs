@@ -21,14 +21,18 @@ public class SequenceMinigame : MonoBehaviour
 
     private void OnEnable()
     {
-        NodeTreeEvents.Subscribe("SequenceGenome", OpenMinigame);
-        NodeTreeEvents.Subscribe("SetHasSeenComputer", SetHasSeenComputer);
+        NodeTreeEvents.Subscribe("SequenceGenome",      OpenMinigame);
+        NodeTreeEvents.Subscribe("SetHasSeenComputer",  SetHasSeenComputer);
+        NodeTreeEvents.Subscribe("SetComputerContext",  UpdateComputerContext);
+        SaveManager.OnContextReady += UpdateComputerContext;
     }
 
     private void OnDisable()
     {
-        NodeTreeEvents.Unsubscribe("SequenceGenome", OpenMinigame);
+        NodeTreeEvents.Unsubscribe("SequenceGenome",     OpenMinigame);
         NodeTreeEvents.Unsubscribe("SetHasSeenComputer", SetHasSeenComputer);
+        NodeTreeEvents.Unsubscribe("SetComputerContext", UpdateComputerContext);
+        SaveManager.OnContextReady -= UpdateComputerContext;
     }
 
     private void OpenMinigame()
@@ -57,8 +61,15 @@ public class SequenceMinigame : MonoBehaviour
         UIManager.Instance.ShowDialog();
     }
 
-    private void SetHasSeenComputer()
-    {
+    private void SetHasSeenComputer() =>
         SaveManager.Instance.SetMilestone("hasSeenComputer", true);
+
+    private void UpdateComputerContext()
+    {
+        PlantData[] unlocked = PlantDatabase.GetUnlocked();
+        var collection = SaveManager.Instance.Milestones.genomeCollection;
+        bool allSequenced = unlocked.Length > 0 &&
+            System.Array.TrueForAll(unlocked, p => collection.Exists(g => g.plantName == p.name));
+        ConditionContext.SetBool("allGenomesSequenced", allSequenced);
     }
 }

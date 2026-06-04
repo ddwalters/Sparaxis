@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputActionReference pauseAction;
     [SerializeField] private InputActionAsset inputActions;
     [SerializeField] private NodeTreeGraphSO openingDialog;
+    [SerializeField] private NodeTreeGraphSO completionDialog;
 
     [Header("World Stats HUD")]
     [SerializeField] private GameObject statsContainer;
@@ -57,8 +58,20 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (isPlaying)
-            PlayTime += Time.deltaTime;
+        if (!isPlaying) return;
+        PlayTime += Time.deltaTime;
+
+        var m = SaveManager.Instance.Milestones;
+        float totalStats = m.earthGrowthSpeed + m.earthEfficiency + m.earthResistance;
+        if (totalStats <= 0f) return;
+
+        bool wasComplete = m.earthPercent >= 100f;
+        m.earthPercent = Mathf.Min(100f, m.earthPercent + totalStats * 0.005f * Time.deltaTime);
+        if (recoverySlider != null) recoverySlider.value = Mathf.Clamp01(m.earthPercent / 100f);
+        if (recoveryText   != null) recoveryText.text   = $"{m.earthPercent:0.#}%";
+
+        if (!wasComplete && m.earthPercent >= 100f)
+            TriggerCompletion();
     }
 
     private void OnEnable()
@@ -159,7 +172,22 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = show ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
-    private void OnRecoveryChanged(float _) => RefreshStatsDisplay();
+    private void OnRecoveryChanged(float _)
+    {
+        var m = SaveManager.Instance.Milestones;
+        m.earthPercent = Mathf.Min(100f, m.earthPercent);
+        RefreshStatsDisplay();
+        if (m.earthPercent >= 100f)
+            TriggerCompletion();
+    }
+
+    private void TriggerCompletion()
+    {
+        if (completionDialog == null) return;
+        isPlaying = false;
+        UIManager.Instance.ShowDialog();
+        DialogRunner.Instance.StartDialog(completionDialog);
+    }
 
     private void RefreshStatsDisplay()
     {
