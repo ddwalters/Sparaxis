@@ -129,6 +129,14 @@ public class SaveManager : MonoBehaviour
         return JsonUtility.FromJson<SaveSlotMeta>(File.ReadAllText(MetaPath(slot)));
     }
 
+    public void DeleteSlot(int slot)
+    {
+        string savePath = SavePath(slot);
+        string metaPath = MetaPath(slot);
+        if (File.Exists(savePath)) File.Delete(savePath);
+        if (File.Exists(metaPath)) File.Delete(metaPath);
+    }
+
     public SaveSlotMeta[] GetAllSlotMeta()
     {
         SaveSlotMeta[] metas = new SaveSlotMeta[SlotCount];

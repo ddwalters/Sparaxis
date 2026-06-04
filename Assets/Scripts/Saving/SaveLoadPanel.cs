@@ -25,10 +25,12 @@ public class SaveLoadPanel : MonoBehaviour
         foreach (SaveSlotMeta meta in SaveManager.Instance.GetAllSlotMeta())
         {
             GameObject slotObj = Instantiate(slotPrefab, slotContainer);
-            slotObj.GetComponent<SaveSlotButton>().Populate(meta);
+            SaveSlotButton slotButton = slotObj.GetComponent<SaveSlotButton>();
+            slotButton.Populate(meta);
 
             int capturedSlot = meta.slot;
             slotObj.GetComponentInChildren<Button>().onClick.AddListener(() => OnSlotPressed(capturedSlot));
+            slotButton.SetDeleteAction(() => OnDeletePressed(capturedSlot));
         }
     }
 
@@ -43,5 +45,11 @@ public class SaveLoadPanel : MonoBehaviour
         {
             GameManager.Instance.LoadGame(slot);
         }
+    }
+
+    private void OnDeletePressed(int slot)
+    {
+        SaveManager.Instance.DeleteSlot(slot);
+        PopulateSlots();
     }
 }
