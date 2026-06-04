@@ -5,11 +5,21 @@ using UnityEngine;
 public static class PlantDatabase
 {
     private static PlantData[] _plants;
+    private static PlantData[] _unlocked;
+    private static float _cachedEarthPercent = -1f;
 
     public static PlantData[] All => _plants ??= Load();
 
-    public static PlantData[] GetUnlocked() =>
-        All.Where(p => p.unlockAt <= SaveManager.Instance.Milestones.earthPercent).ToArray();
+    public static PlantData[] GetUnlocked()
+    {
+        float current = SaveManager.Instance.Milestones.earthPercent;
+        if (_unlocked == null || !Mathf.Approximately(_cachedEarthPercent, current))
+        {
+            _unlocked = All.Where(p => p.unlockAt <= current).ToArray();
+            _cachedEarthPercent = current;
+        }
+        return _unlocked;
+    }
 
     public static PlantData GetByName(string plantName) =>
         Array.Find(All, p => p.name == plantName);

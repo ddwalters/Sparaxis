@@ -32,7 +32,6 @@ public class SequenceMinigamePanel : MonoBehaviour
     private void Update()
     {
         _elapsed -= Time.deltaTime;
-        timerText.text = Mathf.CeilToInt(_elapsed).ToString();
 
         if (_elapsed <= 0f)
         {
@@ -40,6 +39,8 @@ public class SequenceMinigamePanel : MonoBehaviour
             OnComplete?.Invoke();
             return;
         }
+
+        timerText.text = Mathf.CeilToInt(_elapsed).ToString();
 
         ArrowDir? pressed = GetPressedDirection();
         if (pressed == null) return;

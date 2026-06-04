@@ -1,6 +1,7 @@
 using NodeTree;
 using System;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -38,10 +39,9 @@ public class GameManager : MonoBehaviour
     public void AddWorldRecovery(float effective, float speed, float resistance)
     {
         var m = SaveManager.Instance.Milestones;
-        m.earthPercent += effective;
+        m.earthPercent     += effective;
         m.earthGrowthSpeed += speed;
-        m.earthEfficiency += effective;
-        m.earthResistance += resistance;
+        m.earthResistance  += resistance;
         OnWorldRecoveryChanged?.Invoke(m.earthPercent);
     }
 
@@ -199,9 +199,17 @@ public class GameManager : MonoBehaviour
 
         if (recoverySlider  != null) recoverySlider.value  = Mathf.Clamp01(m.earthPercent / 100f);
         if (recoveryText    != null) recoveryText.text     = $"{m.earthPercent:0.#}%";
-        if (growthSpeedText != null) growthSpeedText.text  = m.earthGrowthSpeed.ToString("0.##");
-        if (efficiencyText  != null) efficiencyText.text   = m.earthEfficiency.ToString("0.##");
-        if (resistanceText  != null) resistanceText.text   = m.earthResistance.ToString("0.##");
+        if (growthSpeedText != null) growthSpeedText.text = m.earthGrowthSpeed.ToString("0.###");
+        if (resistanceText  != null) resistanceText.text  = m.earthResistance.ToString("0.###");
+
+        if (efficiencyText != null)
+        {
+            var collection = m.genomeCollection;
+            float avgScore = collection.Count > 0
+                ? (float)collection.Sum(r => r.score) / collection.Count
+                : 0f;
+            efficiencyText.text = avgScore.ToString("0");
+        }
     }
 
     public void TriggerDialog(NodeTreeTrigger trigger)

@@ -8,6 +8,8 @@ public class PrinterInteractable : MonoBehaviour
     [SerializeField] private Transform itemHolder;
     [SerializeField] private GameObject seedlingPrefab;
 
+    private SeedlingItem _currentItem;
+
     private void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
@@ -36,17 +38,16 @@ public class PrinterInteractable : MonoBehaviour
 
     public void UpdateInventoryContext()
     {
-        SeedlingItem current = itemHolder.GetComponentInChildren<SeedlingItem>();
-        ConditionContext.SetBool("hasInventorySpace", current == null);
-        ConditionContext.SetBool("playerHasSeedling", current != null && !current.IsGrown);
-        ConditionContext.SetBool("hasGrownPlant", current != null && current.IsGrown);
+        ConditionContext.SetBool("hasInventorySpace",  _currentItem == null);
+        ConditionContext.SetBool("playerHasSeedling",  _currentItem != null && !_currentItem.IsGrown);
+        ConditionContext.SetBool("hasGrownPlant",      _currentItem != null && _currentItem.IsGrown);
 
         bool hasDuplicate = false;
-        if (current != null)
+        if (_currentItem != null)
         {
             var collection = SaveManager.Instance.Milestones.genomeCollection;
             if (collection.Count > 0)
-                hasDuplicate = current.Data.sourcePlant.name == collection[collection.Count - 1].plantName;
+                hasDuplicate = _currentItem.Data.sourcePlant.name == collection[collection.Count - 1].plantName;
         }
 
         ConditionContext.SetBool("hasDuplicateSeedling", hasDuplicate);
@@ -54,8 +55,7 @@ public class PrinterInteractable : MonoBehaviour
 
     private void OnPlantSeedling()
     {
-        SeedlingItem item = itemHolder.GetComponentInChildren<SeedlingItem>();
-        if (item == null)
+        if (_currentItem == null)
         {
             Debug.LogWarning("[Printer] No seedling in inventory to plant.");
             return;
@@ -68,11 +68,12 @@ public class PrinterInteractable : MonoBehaviour
             return;
         }
 
-        slot.Plant(item.Data);
+        slot.Plant(_currentItem.Data);
         GardenManager.Instance.UpdateGardenContext();
 
-        item.transform.SetParent(null);
-        Destroy(item.gameObject);
+        _currentItem.transform.SetParent(null);
+        Destroy(_currentItem.gameObject);
+        _currentItem = null;
         ConditionContext.SetBool("playerHasSeedling", false);
         ConditionContext.SetBool("hasInventorySpace", true);
     }
@@ -84,20 +85,20 @@ public class PrinterInteractable : MonoBehaviour
 
         GameObject obj = Instantiate(seedlingPrefab, itemHolder);
         obj.transform.localScale = Vector3.one;
-        obj.GetComponent<SeedlingItem>().Initialize(seedling, isGrown: true);
+        _currentItem = obj.GetComponent<SeedlingItem>();
+        _currentItem.Initialize(seedling, isGrown: true);
         UpdateInventoryContext();
     }
 
     private void OnShuttleGenome()
     {
-        SeedlingItem item = itemHolder.GetComponentInChildren<SeedlingItem>();
-        if (item == null || !item.IsGrown) return;
+        if (_currentItem == null || !_currentItem.IsGrown) return;
 
-        Debug.Log($"[Shuttle] effective={item.Data.effective:F4} speed={item.Data.speed:F4} resistance={item.Data.resistance:F4}");
-        GameManager.Instance.AddWorldRecovery(item.Data.effective, item.Data.speed, item.Data.resistance);
+        GameManager.Instance.AddWorldRecovery(_currentItem.Data.effective, _currentItem.Data.speed, _currentItem.Data.resistance);
 
-        item.transform.SetParent(null);
-        Destroy(item.gameObject);
+        _currentItem.transform.SetParent(null);
+        Destroy(_currentItem.gameObject);
+        _currentItem = null;
         ConditionContext.SetBool("hasGrownPlant", false);
         ConditionContext.SetBool("hasInventorySpace", true);
     }
@@ -107,10 +108,15 @@ public class PrinterInteractable : MonoBehaviour
         var collection = SaveManager.Instance.Milestones.genomeCollection;
 
         if (collection.Count == 0) { Debug.LogWarning("[Printer] No genomes in collection."); return; }
-        if (itemHolder.GetComponentInChildren<SeedlingItem>() != null) return;
+        if (_currentItem != null) return;
+
+        PlantData plant = collection[collection.Count - 1].Plant;
+        if (plant == null) { Debug.LogError("[Printer] Plant not found in database."); return; }
 
         Seedling seedling = GenerateSeedling(collection[collection.Count - 1]);
-        Instantiate(seedlingPrefab, itemHolder).GetComponent<SeedlingItem>().Initialize(seedling);
+        GameObject obj = Instantiate(seedlingPrefab, itemHolder);
+        _currentItem = obj.GetComponent<SeedlingItem>();
+        _currentItem.Initialize(seedling);
         SaveManager.Instance.SetMilestone("hasSequence", false);
         UpdateInventoryContext();
     }

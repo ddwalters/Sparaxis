@@ -66,9 +66,14 @@ public class SequenceMinigame : MonoBehaviour
             SaveManager.Instance.SetMilestone("hasSequence", true);
         }
 
+        bool wasForFun = _playingForFun;
         _playingForFun = false;
         GameManager.Instance.EnablePlayerInput();
-        UIManager.Instance.ShowDialog();
+
+        if (wasForFun)
+            UIManager.Instance.ShowHUD();
+        else
+            UIManager.Instance.ShowDialog();
     }
 
     private void SetHasSeenComputer() =>

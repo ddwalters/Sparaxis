@@ -88,6 +88,11 @@ public class SaveManager : MonoBehaviour
         }
 
         SaveData data = JsonUtility.FromJson<SaveData>(File.ReadAllText(SavePath(slot)));
+        if (data == null || data.milestones == null)
+        {
+            Debug.LogError($"[SaveManager] Save file for slot {slot} is corrupt or missing milestones.");
+            return;
+        }
         player.transform.position = data.playerPosition;
         playerMovement.SetFacingDirection(data.playerFacingDirection);
         GameManager.Instance.PlayTime = data.playTimeSeconds;
@@ -125,10 +130,15 @@ public class SaveManager : MonoBehaviour
 
     public SaveSlotMeta GetSlotMeta(int slot)
     {
-        if (!File.Exists(MetaPath(slot)))
+        try
+        {
+            var meta = JsonUtility.FromJson<SaveSlotMeta>(File.ReadAllText(MetaPath(slot)));
+            return meta ?? new SaveSlotMeta { slot = slot, isEmpty = true };
+        }
+        catch
+        {
             return new SaveSlotMeta { slot = slot, isEmpty = true };
-
-        return JsonUtility.FromJson<SaveSlotMeta>(File.ReadAllText(MetaPath(slot)));
+        }
     }
 
     public void DeleteSlot(int slot)
