@@ -13,17 +13,18 @@ MonoBehaviour:
   m_Name: Printer
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 2217948139912430166
-  - rid: 2217948139912430167
-  - rid: 2217948139912430168
-  - rid: 2217948139912430169
-  - rid: 2217948139912430170
-  - rid: 2217948139912430171
-  - rid: 2217948139912430172
-  - rid: 2217948139912430173
-  - rid: 2217948139912430174
-  - rid: 2217948139912430175
-  - rid: 2217948139912430176
+  - rid: 2217948139912430189
+  - rid: 2217948139912430190
+  - rid: 2217948139912430191
+  - rid: 2217948139912430192
+  - rid: 2217948139912430193
+  - rid: 2217948139912430194
+  - rid: 2217948139912430195
+  - rid: 2217948139912430196
+  - rid: 2217948139912430197
+  - rid: 2217948139912430198
+  - rid: 2217948139912430199
+  - rid: 2217948139912430200
   Edges:
   - OutputNodeGuid: 294e4e44-8549-4d9d-977c-36879e22f2ac
     InputNodeGuid: e7c21a70-af8a-4e9e-aecd-4a7aa7595cee
@@ -56,6 +57,9 @@ MonoBehaviour:
     InputNodeGuid: pr000011-0000-0000-0000-000000000011
     OutputPortIndex: 1
   - OutputNodeGuid: pr000011-0000-0000-0000-000000000011
+    InputNodeGuid: pr000012-0000-0000-0000-000000000012
+    OutputPortIndex: 0
+  - OutputNodeGuid: pr000012-0000-0000-0000-000000000012
     InputNodeGuid: 1477369c-1245-484b-976b-4b717bb76fa1
     OutputPortIndex: 0
   defaultTextSpeed: 0.05
@@ -63,7 +67,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2217948139912430166
+    - rid: 2217948139912430189
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 294e4e44-8549-4d9d-977c-36879e22f2ac
@@ -71,7 +75,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 2217948139912430167
+    - rid: 2217948139912430190
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: e7c21a70-af8a-4e9e-aecd-4a7aa7595cee
@@ -80,16 +84,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         Key: seedlingCaptain
-    - rid: 2217948139912430168
-      type: {class: StartNewTreeNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: fa6fd204-1387-4772-acf1-fc376ee996d0
-        Position: {x: -200, y: 200}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        NodeTreeGraphSO: {fileID: 11400000, guid: 47b2ce191cf0d3f4ba73e6d6189f83ad, type: 2}
-    - rid: 2217948139912430169
+    - rid: 2217948139912430191
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: pr000005-0000-0000-0000-000000000005
@@ -98,7 +93,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         Key: hasInventorySpace
-    - rid: 2217948139912430170
+    - rid: 2217948139912430192
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: pr000006-0000-0000-0000-000000000006
@@ -113,7 +108,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 2217948139912430171
+    - rid: 2217948139912430193
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: pr000007-0000-0000-0000-000000000007
@@ -121,7 +116,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 2217948139912430172
+    - rid: 2217948139912430194
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: pr000008-0000-0000-0000-000000000008
@@ -130,7 +125,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         Key: hasDuplicateSeedling
-    - rid: 2217948139912430173
+    - rid: 2217948139912430195
       type: {class: DialogOptionsNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: pr000009-0000-0000-0000-000000000009
@@ -149,7 +144,7 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 2217948139912430174
+    - rid: 2217948139912430196
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: pr000010-0000-0000-0000-000000000010
@@ -157,7 +152,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 2217948139912430175
+    - rid: 2217948139912430197
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: pr000011-0000-0000-0000-000000000011
@@ -174,11 +169,29 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 2217948139912430176
+    - rid: 2217948139912430198
+      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: pr000012-0000-0000-0000-000000000012
+        Position: {x: 1100, y: -384}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        EventKey: PrintGenome
+    - rid: 2217948139912430199
+      type: {class: StartNewTreeNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: fa6fd204-1387-4772-acf1-fc376ee996d0
+        Position: {x: -148, y: 119}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        NodeTreeGraphSO: {fileID: 11400000, guid: 47b2ce191cf0d3f4ba73e6d6189f83ad, type: 2}
+    - rid: 2217948139912430200
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 1477369c-1245-484b-976b-4b717bb76fa1
-        Position: {x: 1200, y: -384}
+        Position: {x: 1350, y: -384}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0

@@ -93,6 +93,7 @@ public class PrinterInteractable : MonoBehaviour
         SeedlingItem item = itemHolder.GetComponentInChildren<SeedlingItem>();
         if (item == null || !item.IsGrown) return;
 
+        Debug.Log($"[Shuttle] effective={item.Data.effective:F4} speed={item.Data.speed:F4} resistance={item.Data.resistance:F4}");
         GameManager.Instance.AddWorldRecovery(item.Data.effective, item.Data.speed, item.Data.resistance);
 
         item.transform.SetParent(null);
@@ -119,7 +120,9 @@ public class PrinterInteractable : MonoBehaviour
         PlantData plant = record.Plant;
         float budget = Mathf.Clamp(record.score * 0.001f, 0.05f, 0.5f);
 
-        float w1 = Random.value, w2 = Random.value, w3 = Random.value;
+        float w1 = Mathf.Max(0.05f, Random.value);
+        float w2 = Mathf.Max(0.05f, Random.value);
+        float w3 = Mathf.Max(0.05f, Random.value);
         float total = w1 + w2 + w3;
 
         Seedling seedling = new Seedling

@@ -32,7 +32,11 @@ public class UIManager : MonoBehaviour
         sequenceMinigamePanel.SetActive(sequenceMinigamePanel == active);
     }
 
-    public void ShowHUD() => SetPanels(hudPanel);
+    public void ShowHUD()
+    {
+        if (sequenceMinigamePanel.activeSelf) return;
+        SetPanels(hudPanel);
+    }
     public void ShowDialog() => SetPanels(dialogPanel);
     public void ShowPause() => SetPanels(pausePanel);
     public void ShowMenu() => SetPanels(menuPanel);

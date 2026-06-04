@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Computer
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 2217948139912430114
-  - rid: 2217948139912430115
-  - rid: 2217948139912430116
-  - rid: 2217948139912430117
-  - rid: 2217948139912430118
-  - rid: 2217948139912430119
-  - rid: 2217948139912430120
-  - rid: 2217948139912430121
-  - rid: 2217948139912430122
-  - rid: 2217948139912430123
-  - rid: 2217948139912430124
-  - rid: 2217948139912430125
+  - rid: 2217948139912430222
+  - rid: 2217948139912430223
+  - rid: 2217948139912430224
+  - rid: 2217948139912430225
+  - rid: 2217948139912430226
+  - rid: 2217948139912430227
+  - rid: 2217948139912430228
+  - rid: 2217948139912430229
+  - rid: 2217948139912430230
+  - rid: 2217948139912430231
+  - rid: 2217948139912430232
+  - rid: 2217948139912430233
   Edges:
   - OutputNodeGuid: 61da0742-f8dc-4704-99f7-56ce510a000c
     InputNodeGuid: cc000001-0000-0000-0000-000000000001
@@ -38,15 +38,9 @@ MonoBehaviour:
   - OutputNodeGuid: 41fcf936-8805-4307-9a87-341bb9d32a18
     InputNodeGuid: 4209f2c9-14f4-4695-a0cb-25d0027379d3
     OutputPortIndex: 1
-  - OutputNodeGuid: cc000004-0000-0000-0000-000000000004
-    InputNodeGuid: e1185eef-b389-4aa9-b840-ce277f247790
-    OutputPortIndex: 0
   - OutputNodeGuid: 1ca2e17b-5355-4f4a-9a78-bdbb23cbca3d
     InputNodeGuid: cc000004-0000-0000-0000-000000000004
     OutputPortIndex: 1
-  - OutputNodeGuid: 1ca2e17b-5355-4f4a-9a78-bdbb23cbca3d
-    InputNodeGuid: cc000005-0000-0000-0000-000000000005
-    OutputPortIndex: 0
   - OutputNodeGuid: cc000002-0000-0000-0000-000000000002
     InputNodeGuid: 1ca2e17b-5355-4f4a-9a78-bdbb23cbca3d
     OutputPortIndex: 0
@@ -59,12 +53,21 @@ MonoBehaviour:
   - OutputNodeGuid: 67f7fab2-5718-447e-8d46-a93fd9a33899
     InputNodeGuid: cf18b645-a1ca-48f8-9479-081922107986
     OutputPortIndex: 0
+  - OutputNodeGuid: 1ca2e17b-5355-4f4a-9a78-bdbb23cbca3d
+    InputNodeGuid: 3070d965-2c38-4182-9f71-8e60babba55c
+    OutputPortIndex: 0
+  - OutputNodeGuid: cc000004-0000-0000-0000-000000000004
+    InputNodeGuid: 3070d965-2c38-4182-9f71-8e60babba55c
+    OutputPortIndex: 0
+  - OutputNodeGuid: 3070d965-2c38-4182-9f71-8e60babba55c
+    InputNodeGuid: b663228a-1c71-4a3f-b339-0c9b94621dbb
+    OutputPortIndex: 0
   defaultTextSpeed: 0.05
   IndicatorIcon: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 2217948139912430114
+    - rid: 2217948139912430222
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 61da0742-f8dc-4704-99f7-56ce510a000c
@@ -72,7 +75,7 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 2217948139912430115
+    - rid: 2217948139912430223
       type: {class: StartNewTreeNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 4209f2c9-14f4-4695-a0cb-25d0027379d3
@@ -81,7 +84,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         NodeTreeGraphSO: {fileID: 11400000, guid: 638d1fdb9b5365e459b150d37939ace3, type: 2}
-    - rid: 2217948139912430116
+    - rid: 2217948139912430224
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: cc000002-0000-0000-0000-000000000002
@@ -90,7 +93,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         Key: allGenomesSequenced
-    - rid: 2217948139912430117
+    - rid: 2217948139912430225
       type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: cc000001-0000-0000-0000-000000000001
@@ -99,7 +102,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         EventKey: SetComputerContext
-    - rid: 2217948139912430118
+    - rid: 2217948139912430226
       type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 41fcf936-8805-4307-9a87-341bb9d32a18
@@ -108,23 +111,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         Key: seedlingCaptain
-    - rid: 2217948139912430119
-      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: cc000005-0000-0000-0000-000000000005
-        Position: {x: 1201, y: -98}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-    - rid: 2217948139912430120
-      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: e1185eef-b389-4aa9-b840-ce277f247790
-        Position: {x: 1472, y: 21}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-    - rid: 2217948139912430121
+    - rid: 2217948139912430227
       type: {class: DialogOptionsNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 1ca2e17b-5355-4f4a-9a78-bdbb23cbca3d
@@ -134,15 +121,15 @@ MonoBehaviour:
         ConditionFailBehavior: 0
         DialogText: All known genomes have been sequenced. Run another for fun?
         ResponseOptions:
-        - 
-        - 
+        - No
+        - Yuppers
         TypingTickClip: {fileID: 0}
         FontAsset: {fileID: 0}
         FontSize: 36
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 2217948139912430122
+    - rid: 2217948139912430228
       type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: cc000004-0000-0000-0000-000000000004
@@ -150,8 +137,8 @@ MonoBehaviour:
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-        EventKey: SequenceGenome
-    - rid: 2217948139912430123
+        EventKey: SequenceForFun
+    - rid: 2217948139912430229
       type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 928cb2a9-fbf5-44f2-8b4e-6dc58b0a3099
@@ -160,7 +147,7 @@ MonoBehaviour:
         Conditions: []
         ConditionFailBehavior: 0
         EventKey: SequenceGenome
-    - rid: 2217948139912430124
+    - rid: 2217948139912430230
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 67f7fab2-5718-447e-8d46-a93fd9a33899
@@ -175,11 +162,35 @@ MonoBehaviour:
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 2217948139912430125
+    - rid: 2217948139912430231
       type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: cf18b645-a1ca-48f8-9479-081922107986
         Position: {x: 1413, y: 290}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 2217948139912430232
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 3070d965-2c38-4182-9f71-8e60babba55c
+        Position: {x: 1521, y: -97}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: '[You can repeat print seeds forever, no need to sequence once
+          you complete all plant types]'
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 2217948139912430233
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: b663228a-1c71-4a3f-b339-0c9b94621dbb
+        Position: {x: 1902, y: -56}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
