@@ -13,26 +13,45 @@ MonoBehaviour:
   m_Name: Shuttle
   m_EditorClassIdentifier: Hiileike.Nodetree::NodeTree.NodeTreeGraphSO
   Nodes:
-  - rid: 693803542726312092
-  - rid: 693803542726312093
-  - rid: 693803542726312094
-  - rid: 693803542726312095
-  - rid: 693803542726312096
-  - rid: 693803542726312097
+  - rid: 2217948139912430177
+  - rid: 2217948139912430178
+  - rid: 2217948139912430179
+  - rid: 2217948139912430180
+  - rid: 2217948139912430181
+  - rid: 2217948139912430182
+  - rid: 2217948139912430183
+  - rid: 2217948139912430184
+  - rid: 2217948139912430185
+  - rid: 2217948139912430186
   Edges:
-  - OutputNodeGuid: 0e7cf66d-946a-4cac-9853-d7dc671550b6
-    InputNodeGuid: 3f8b9939-f382-4aca-b29f-2f06002574ad
-    OutputPortIndex: 0
   - OutputNodeGuid: 2d47abd2-2867-4fcb-8be1-254716c9783a
     InputNodeGuid: 0e7cf66d-946a-4cac-9853-d7dc671550b6
     OutputPortIndex: 0
   - OutputNodeGuid: 0e7cf66d-946a-4cac-9853-d7dc671550b6
     InputNodeGuid: 9ecbdf0d-6a93-4a7b-93dc-6c859d3f29d9
     OutputPortIndex: 1
-  - OutputNodeGuid: 3f8b9939-f382-4aca-b29f-2f06002574ad
-    InputNodeGuid: a5809df4-e8ac-4852-9c03-5c38632bd44a
+  - OutputNodeGuid: 0e7cf66d-946a-4cac-9853-d7dc671550b6
+    InputNodeGuid: sh000001-0000-0000-0000-000000000001
     OutputPortIndex: 0
-  - OutputNodeGuid: a5809df4-e8ac-4852-9c03-5c38632bd44a
+  - OutputNodeGuid: sh000001-0000-0000-0000-000000000001
+    InputNodeGuid: sh000002-0000-0000-0000-000000000002
+    OutputPortIndex: 0
+  - OutputNodeGuid: sh000002-0000-0000-0000-000000000002
+    InputNodeGuid: sh000003-0000-0000-0000-000000000003
+    OutputPortIndex: 0
+  - OutputNodeGuid: sh000003-0000-0000-0000-000000000003
+    InputNodeGuid: sh000004-0000-0000-0000-000000000004
+    OutputPortIndex: 0
+  - OutputNodeGuid: sh000004-0000-0000-0000-000000000004
+    InputNodeGuid: sh000005-0000-0000-0000-000000000005
+    OutputPortIndex: 0
+  - OutputNodeGuid: sh000005-0000-0000-0000-000000000005
+    InputNodeGuid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
+    OutputPortIndex: 0
+  - OutputNodeGuid: sh000001-0000-0000-0000-000000000001
+    InputNodeGuid: sh000006-0000-0000-0000-000000000006
+    OutputPortIndex: 1
+  - OutputNodeGuid: sh000006-0000-0000-0000-000000000006
     InputNodeGuid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
     OutputPortIndex: 0
   defaultTextSpeed: 0.05
@@ -40,61 +59,109 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 693803542726312092
+    - rid: 2217948139912430177
       type: {class: StartNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 2d47abd2-2867-4fcb-8be1-254716c9783a
-        Position: {x: -174, y: 70}
+        Position: {x: -386, y: 184}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-    - rid: 693803542726312093
+    - rid: 2217948139912430178
+      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 0e7cf66d-946a-4cac-9853-d7dc671550b6
+        Position: {x: -200, y: 184}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        Key: seedlingCaptain
+    - rid: 2217948139912430179
+      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
+        Position: {x: 1628, y: 141}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+    - rid: 2217948139912430180
+      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: sh000001-0000-0000-0000-000000000001
+        Position: {x: 78, y: 57}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        Key: hasGrownPlant
+    - rid: 2217948139912430181
       type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
-        Guid: 3f8b9939-f382-4aca-b29f-2f06002574ad
-        Position: {x: 288, y: -85}
+        Guid: sh000002-0000-0000-0000-000000000002
+        Position: {x: 328, y: -93}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-        DialogText: Launch your succesful seeds back to earth. For Democracy!
+        DialogText: Well here goes nothing!
         TypingTickClip: {fileID: 0}
         FontAsset: {fileID: 0}
         FontSize: 36
         FontColor: {r: 1, g: 1, b: 1, a: 1}
         FontStyle: 0
         TextSpeed: 0
-    - rid: 693803542726312094
-      type: {class: BoolConditionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+    - rid: 2217948139912430182
+      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
-        Guid: 0e7cf66d-946a-4cac-9853-d7dc671550b6
-        Position: {x: -57, y: 61}
+        Guid: sh000003-0000-0000-0000-000000000003
+        Position: {x: 678, y: -93}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
-        Key: seedlingCaptain
-    - rid: 693803542726312095
+        EventKey: ShuttleGenome
+    - rid: 2217948139912430183
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: sh000004-0000-0000-0000-000000000004
+        Position: {x: 978, y: -93}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: <i>I hope that works. . .</i>
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 2217948139912430184
+      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: sh000005-0000-0000-0000-000000000005
+        Position: {x: 1308, y: -93}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        EventKey: SetSeedlingCaptain
+    - rid: 2217948139912430185
+      type: {class: DialogNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
+      data:
+        Guid: sh000006-0000-0000-0000-000000000006
+        Position: {x: 328, y: 307}
+        HasSeen: 0
+        Conditions: []
+        ConditionFailBehavior: 0
+        DialogText: I need to bring a grown plant to ship it to Earth.
+        TypingTickClip: {fileID: 0}
+        FontAsset: {fileID: 0}
+        FontSize: 36
+        FontColor: {r: 1, g: 1, b: 1, a: 1}
+        FontStyle: 0
+        TextSpeed: 0
+    - rid: 2217948139912430186
       type: {class: StartNewTreeNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
       data:
         Guid: 9ecbdf0d-6a93-4a7b-93dc-6c859d3f29d9
-        Position: {x: 257, y: 232}
+        Position: {x: 56, y: 381}
         HasSeen: 0
         Conditions: []
         ConditionFailBehavior: 0
         NodeTreeGraphSO: {fileID: 11400000, guid: cd647bf0de71d8f42aa3196eca095c95, type: 2}
-    - rid: 693803542726312096
-      type: {class: EndNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: 3bedc8d6-ef30-4e66-81d8-7ea93a301e8d
-        Position: {x: 952, y: -3}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-    - rid: 693803542726312097
-      type: {class: ActionNodeData, ns: NodeTree, asm: Hiileike.Nodetree}
-      data:
-        Guid: a5809df4-e8ac-4852-9c03-5c38632bd44a
-        Position: {x: 643, y: -42}
-        HasSeen: 0
-        Conditions: []
-        ConditionFailBehavior: 0
-        EventKey: SeedSelection
