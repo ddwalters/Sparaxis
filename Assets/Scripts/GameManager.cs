@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CinemachineCamera virtualCamera;
     [SerializeField] private Transform menuCameraTarget;
     [SerializeField] private InputActionReference pauseAction;
+    [SerializeField] private InputActionReference dropAction;
     [SerializeField] private InputActionAsset inputActions;
     [SerializeField] private NodeTreeGraphSO openingDialog;
     [SerializeField] private NodeTreeGraphSO completionDialog;
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
         if (!isPlaying) return;
         PlayTime += Time.deltaTime;
 
+
         var m = SaveManager.Instance.Milestones;
         float totalStats = m.earthGrowthSpeed + m.earthEfficiency + m.earthResistance;
         if (totalStats <= 0f) return;
@@ -78,6 +80,8 @@ public class GameManager : MonoBehaviour
     {
         pauseAction.action.Enable();
         pauseAction.action.performed += OnPause;
+        dropAction.action.Enable();
+        dropAction.action.performed  += OnDrop;
         OnWorldRecoveryChanged       += OnRecoveryChanged;
         SaveManager.OnContextReady   += RefreshStatsDisplay;
     }
@@ -85,6 +89,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         pauseAction.action.performed -= OnPause;
+        dropAction.action.performed  -= OnDrop;
         OnWorldRecoveryChanged       -= OnRecoveryChanged;
         SaveManager.OnContextReady   -= RefreshStatsDisplay;
     }
@@ -95,6 +100,13 @@ public class GameManager : MonoBehaviour
         virtualCamera.Follow = menuCameraTarget;
         ShowCursor(true);
         UIManager.Instance.ShowMenu();
+    }
+
+    private void OnDrop(InputAction.CallbackContext ctx)
+    {
+        if (!isPlaying) return;
+        if (DialogRunner.Instance != null && DialogRunner.Instance.IsDialogActive) return;
+        PrinterInteractable.Instance?.DropCurrentItem();
     }
 
     private void OnPause(InputAction.CallbackContext ctx)

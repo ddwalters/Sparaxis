@@ -17,5 +17,5 @@ MonoBehaviour:
   maturingSprite: {fileID: -8682907647490993238, guid: f73e50dd3163b7941bbc3b3b320b9038, type: 3}
   grownSprite: {fileID: -1448595650, guid: f73e50dd3163b7941bbc3b3b320b9038, type: 3}
   unlockAt: 0
-  bonusStat: 0.01
-  bonusAmount: 0.01
+  bonusStat: 4
+  bonusAmount: 5

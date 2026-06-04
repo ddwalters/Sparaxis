@@ -88,6 +88,13 @@ public class GardenManager : MonoBehaviour
         return nearest;
     }
 
+    public bool HasEmptySlot()
+    {
+        foreach (GardenSlot slot in slots)
+            if (!slot.IsOccupied) return true;
+        return false;
+    }
+
     public GardenSlot GetNearestEmptySlot(Vector3 position)
     {
         GardenSlot nearest = null;

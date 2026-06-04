@@ -38,9 +38,13 @@ public class PrinterInteractable : MonoBehaviour
 
     public void UpdateInventoryContext()
     {
+        if (_currentItem == null)
+            _currentItem = itemHolder.GetComponentInChildren<SeedlingItem>();
+
         ConditionContext.SetBool("hasInventorySpace",  _currentItem == null);
         ConditionContext.SetBool("playerHasSeedling",  _currentItem != null && !_currentItem.IsGrown);
         ConditionContext.SetBool("hasGrownPlant",      _currentItem != null && _currentItem.IsGrown);
+
 
         bool hasDuplicate = false;
         if (_currentItem != null)
@@ -51,6 +55,17 @@ public class PrinterInteractable : MonoBehaviour
         }
 
         ConditionContext.SetBool("hasDuplicateSeedling", hasDuplicate);
+    }
+
+    public void DropCurrentItem()
+    {
+        if (_currentItem == null) return;
+        _currentItem.transform.SetParent(null);
+        Destroy(_currentItem.gameObject);
+        _currentItem = null;
+        ConditionContext.SetBool("playerHasSeedling", false);
+        ConditionContext.SetBool("hasGrownPlant",     false);
+        ConditionContext.SetBool("hasInventorySpace", true);
     }
 
     private void OnPlantSeedling()
@@ -87,6 +102,7 @@ public class PrinterInteractable : MonoBehaviour
         obj.transform.localScale = Vector3.one;
         _currentItem = obj.GetComponent<SeedlingItem>();
         _currentItem.Initialize(seedling, isGrown: true);
+        ConditionContext.SetBool("hasInventorySpace", false);
         UpdateInventoryContext();
     }
 
