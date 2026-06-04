@@ -19,8 +19,9 @@ public class MilestoneTracker
     #endregion
 
     #region Gameplay
-    public float earthPercent; // Earth milestones determine game completeion, I.e. 100%
-    public float earthEfficiency;
+    public float earthPercent; // Earth milestones determine game completion, i.e. 100%
     public float earthGrowthSpeed;
+    public float earthEfficiency;
+    public float earthResistance;
     #endregion
 }

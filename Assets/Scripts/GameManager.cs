@@ -1,8 +1,11 @@
 using NodeTree;
 using System;
+using System.Collections;
+using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,9 +18,31 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputActionAsset inputActions;
     [SerializeField] private NodeTreeGraphSO openingDialog;
 
+    [Header("World Stats HUD")]
+    [SerializeField] private GameObject statsContainer;
+    [SerializeField] private Slider recoverySlider;
+    [SerializeField] private TextMeshProUGUI recoveryText;
+    [SerializeField] private TextMeshProUGUI growthSpeedText;
+    [SerializeField] private TextMeshProUGUI efficiencyText;
+    [SerializeField] private TextMeshProUGUI resistanceText;
+
     private bool isPaused;
     private bool isPlaying;
     public float PlayTime { get; set; }
+
+    public static event Action<float> OnWorldRecoveryChanged;
+
+    public float WorldRecoveryPercent => SaveManager.Instance.Milestones.earthPercent;
+
+    public void AddWorldRecovery(float effective, float speed, float resistance)
+    {
+        var m = SaveManager.Instance.Milestones;
+        m.earthPercent += effective;
+        m.earthGrowthSpeed += speed;
+        m.earthEfficiency += effective;
+        m.earthResistance += resistance;
+        OnWorldRecoveryChanged?.Invoke(m.earthPercent);
+    }
 
     private void Awake()
     {
@@ -40,11 +65,15 @@ public class GameManager : MonoBehaviour
     {
         pauseAction.action.Enable();
         pauseAction.action.performed += OnPause;
+        OnWorldRecoveryChanged       += OnRecoveryChanged;
+        SaveManager.OnContextReady   += RefreshStatsDisplay;
     }
 
     private void OnDisable()
     {
         pauseAction.action.performed -= OnPause;
+        OnWorldRecoveryChanged       -= OnRecoveryChanged;
+        SaveManager.OnContextReady   -= RefreshStatsDisplay;
     }
 
     private void Start()
@@ -128,6 +157,23 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = show;
         Cursor.lockState = show ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+    private void OnRecoveryChanged(float _) => RefreshStatsDisplay();
+
+    private void RefreshStatsDisplay()
+    {
+        if (statsContainer == null) return;
+        var m = SaveManager.Instance.Milestones;
+        bool unlocked = m.seedlingCaptain;
+        statsContainer.SetActive(unlocked);
+        if (!unlocked) return;
+
+        if (recoverySlider  != null) recoverySlider.value  = Mathf.Clamp01(m.earthPercent / 100f);
+        if (recoveryText    != null) recoveryText.text     = $"{m.earthPercent:0.#}%";
+        if (growthSpeedText != null) growthSpeedText.text  = m.earthGrowthSpeed.ToString("0.##");
+        if (efficiencyText  != null) efficiencyText.text   = m.earthEfficiency.ToString("0.##");
+        if (resistanceText  != null) resistanceText.text   = m.earthResistance.ToString("0.##");
     }
 
     public void TriggerDialog(NodeTreeTrigger trigger)

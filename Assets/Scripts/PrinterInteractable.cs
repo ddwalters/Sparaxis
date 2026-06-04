@@ -93,10 +93,7 @@ public class PrinterInteractable : MonoBehaviour
         SeedlingItem item = itemHolder.GetComponentInChildren<SeedlingItem>();
         if (item == null || !item.IsGrown) return;
 
-        var milestones = SaveManager.Instance.Milestones;
-        milestones.earthPercent     += item.Data.effective;
-        milestones.earthEfficiency  += item.Data.speed;
-        milestones.earthGrowthSpeed += item.Data.resistance;
+        GameManager.Instance.AddWorldRecovery(item.Data.effective, item.Data.speed, item.Data.resistance);
 
         item.transform.SetParent(null);
         Destroy(item.gameObject);
