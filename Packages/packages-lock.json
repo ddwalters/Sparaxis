@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.hiileike.nodetree": {
-      "version": "https://github.com/ddwalters/Node-Tree-Package.git",
+      "version": "https://github.com/ddwalters/Node-Tree.git?path=/Packages/com.hiileike.nodetree#Package",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -9,7 +9,7 @@
         "com.unity.ugui": "2.0.0",
         "com.unity.render-pipelines.universal": "17.0.0"
       },
-      "hash": "565ba6afe011b2b3499b5e3c4ddfdf3a4c8e84b2"
+      "hash": "5ccea49c568806d9804cee33cbced30a59f99bc6"
     },
     "com.unity.2d.animation": {
       "version": "14.0.3",

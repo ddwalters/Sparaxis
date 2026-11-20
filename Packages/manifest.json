@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.hiileike.nodetree": "https://github.com/ddwalters/Node-Tree-Package.git",
+    "com.hiileike.nodetree": "https://github.com/ddwalters/Node-Tree.git?path=/Packages/com.hiileike.nodetree#Package",
     "com.unity.2d.animation": "14.0.3",
     "com.unity.2d.aseprite": "4.0.1",
     "com.unity.2d.psdimporter": "13.0.2",
